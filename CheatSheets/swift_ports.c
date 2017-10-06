@@ -1,3 +1,7 @@
+/*
+All arrays are used for integers in this example
+*/
+
 // To detect if an array contains an element
 
 int contains(int arr[], int size, int element) {
@@ -11,7 +15,7 @@ int contains(int arr[], int size, int element) {
 }
 
 
-// To detect size of an unknown array 
+// To detect size of an unknown sized array 
 
 int size (int arr[]) {
     int i = 0;
@@ -22,4 +26,16 @@ int size (int arr[]) {
     return i;
 }
 
+
+// To insert a new element into a theoretically infinite array (size) 
+
+int insert (int arr[], int element, int atIndex, int size) {
+    int i;
+    for (i = size-1, i >= atIndex, i--) {
+        arr[i+1] = arr[i];
+    }
+    arr[atIndex] = element;
+    size++;
+    return size;
+}
 
