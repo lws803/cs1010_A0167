@@ -51,4 +51,12 @@ int remove (int arr[], int atIndex, int size) {
 }
 
 
-// TODO: Add array reversal 
+// TODO: Add array reversal --- DONE 
+void reversal(int arr[],int size){
+    int i = 0, j = size;
+    for ( ; i < j; i++,j--){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
