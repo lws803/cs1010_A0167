@@ -20,7 +20,7 @@ int contains(int arr[], int size, int element) {
 int size (int arr[]) {
     int i = 0;
     while (arr[i] != '\0') {
-        i++
+        i++;
     }
     
     return i;
