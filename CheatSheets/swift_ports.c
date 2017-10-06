@@ -39,3 +39,13 @@ int insert (int arr[], int element, int atIndex, int size) {
     return size;
 }
 
+// To remove an element from a specified index
+
+int remove (int arr[], int atIndex, int size) {
+    int i;
+    for (i = atIndex; i < size; i++) {
+        arr[i] = arr[i+1];
+    }
+    size--;
+    return size;
+}
