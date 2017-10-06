@@ -49,3 +49,6 @@ int remove (int arr[], int atIndex, int size) {
     size--;
     return size;
 }
+
+
+// TODO: Add array reversal 
