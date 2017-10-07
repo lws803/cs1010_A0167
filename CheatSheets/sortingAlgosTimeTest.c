@@ -2,13 +2,16 @@
 #include <time.h>
 #include <stdlib.h>
 
-double bubbleSort (int[], int);
+int bubbleSort (int[], int);
+int insertionSort (int[], int);
+int selectionSort (int[], int);
+int enhancedBubble (int[], int);
 
 int main () {
 	int choice;
 	int arr1[1000], arr2[2000], arr4[4000], arr8[8000], arr16[16000];
 
-	printf("1: bubblesort, 2: insertion sort, 3: selection sort\n");
+	printf("1: bubblesort, 2: insertion sort, 3: selection sort, 4: Enhanced bubblesort\n");
 
 	printf("What sort you want?: ");
 	scanf("%d", &choice);
@@ -16,19 +19,48 @@ int main () {
 	switch(choice) {
 		case 1: 
 		printf("Bubble sort selected\n");
-		printf("size 1000 : %lf \n", bubbleSort(arr1, 1000));
-		printf("size 2000 : %lf \n", bubbleSort(arr2, 2000));
-		printf("size 4000 : %lf \n", bubbleSort(arr4, 4000));
-		printf("size 8000 : %lf \n", bubbleSort(arr8, 8000));
-		printf("size 16000 : %lf \n", bubbleSort(arr16, 16000));
+		printf("size 1000 : %d \n", bubbleSort(arr1, 1000));
+		printf("size 2000 : %d \n", bubbleSort(arr2, 2000));
+		printf("size 4000 : %d \n", bubbleSort(arr4, 4000));
+		printf("size 8000 : %d \n", bubbleSort(arr8, 8000));
+		printf("size 16000 : %d \n", bubbleSort(arr16, 16000));
+		printf("-----Best case: O(n), worst case: O(n^2)-----\n");
+		break;
+		case 2: 
+		printf("Insertion sort selected\n");
+		printf("size 1000 : %d \n", insertionSort(arr1, 1000));
+		printf("size 2000 : %d \n", insertionSort(arr2, 2000));
+		printf("size 4000 : %d \n", insertionSort(arr4, 4000));
+		printf("size 8000 : %d \n", insertionSort(arr8, 8000));
+		printf("size 16000 : %d \n", insertionSort(arr16, 16000));
+		printf("-----Best case: O(n), worst case: O(n^2)-----\n");
+		break;
+		case 3: 
+		printf("Selection sort selected\n");
+		printf("size 1000 : %d \n", selectionSort(arr1, 1000));
+		printf("size 2000 : %d \n", selectionSort(arr2, 2000));
+		printf("size 4000 : %d \n", selectionSort(arr4, 4000));
+		printf("size 8000 : %d \n", selectionSort(arr8, 8000));
+		printf("size 16000 : %d \n", selectionSort(arr16, 16000));
+		printf("-----Best case: O(n^2), worst case: O(n^2)-----\n");
+		break;
+		case 4:
+		printf("Bubble sort selected\n");
+		printf("size 1000 : %d \n", enhancedBubble(arr1, 1000));
+		printf("size 2000 : %d \n", enhancedBubble(arr2, 2000));
+		printf("size 4000 : %d \n", enhancedBubble(arr4, 4000));
+		printf("size 8000 : %d \n", enhancedBubble(arr8, 8000));
+		printf("size 16000 : %d \n", enhancedBubble(arr16, 16000));
+		printf("-----Best case: O(n), worst case: O(n^2)-----\n");
 		break;
 		default:
 		printf("Bubble sort selected\n");
-		printf("size 1000 : %lf \n", bubbleSort(arr1, 1000));
-		printf("size 2000 : %lf \n", bubbleSort(arr2, 2000));
-		printf("size 4000 : %lf \n", bubbleSort(arr4, 4000));
-		printf("size 8000 : %lf \n", bubbleSort(arr8, 8000));
-		printf("size 16000 : %lf \n", bubbleSort(arr16, 16000));
+		printf("size 1000 : %d \n", bubbleSort(arr1, 1000));
+		printf("size 2000 : %d \n", bubbleSort(arr2, 2000));
+		printf("size 4000 : %d \n", bubbleSort(arr4, 4000));
+		printf("size 8000 : %d \n", bubbleSort(arr8, 8000));
+		printf("size 16000 : %d \n", bubbleSort(arr16, 16000));
+		printf("-----Best case: O(n), worst case: O(n^2)-----\n");
 	}
 
 	return 0;
@@ -37,7 +69,7 @@ int main () {
 
 // To determine sort time of a bubble sort Algo 
 
-double bubbleSort (int arr[], int n) {
+int bubbleSort (int arr[], int n) {
 	clock_t start, finish;
 
 	start = clock();
@@ -53,5 +85,73 @@ double bubbleSort (int arr[], int n) {
 
 	finish = clock();
 
-	return (double)((finish - start));
+	return (int)((finish - start));
+}
+
+int insertionSort (int arr[], int n) {
+	int d, c, t;
+	clock_t start, finish;
+	start = clock();
+	for (c = 0; c < n; c++){
+		d = c;
+		while (d > 0 && arr[d] < arr[d-1]){
+			t = arr[d];
+			arr[d] = arr[d-1];
+			arr[d-1] = t;
+
+			d--;
+		}
+	}
+	finish = clock();
+
+	return (int)(finish - start);
+}
+
+
+int selectionSort (int arr[], int n) {
+	int i, smallestIndex, t;
+	clock_t start, finish;
+
+	start = clock();
+	for (i = 0; i < n - 1; i++) {
+		smallestIndex = i;
+		int j;
+		for (j = i; j < n; j++){
+			// Searches for the position for the smallest element in the array
+			if (arr[smallestIndex] > arr[j]){
+				smallestIndex = j;
+			}
+		}
+		// Swaps the smallest element with the element (i) you're currently on 
+		t = arr[i];
+		arr[i] = arr[smallestIndex];
+		arr[smallestIndex] = t;
+	}
+
+	finish = clock();
+
+	return (int)(finish - start);
+}
+
+int enhancedBubble (int arr[], int n) {
+	int i, isNotSorted = 1, t;
+	clock_t start, finish;
+	
+	start = clock();	
+	for (i = 0; (i < n - 1) && isNotSorted; i++){
+		int j;
+		isNotSorted = 0;
+		for (j = 0; j < n - i - 1; j++) {
+			if (arr[j] > arr[j+1]){
+				t = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = t;
+				isNotSorted = 1;
+			}
+		}
+	}
+
+	finish = clock();
+
+	return (int)(finish - start);
 }
