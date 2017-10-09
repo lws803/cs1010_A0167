@@ -22,19 +22,14 @@ int main(void) {
 // and fill in the precondition below.
 // Precond: integer must be positive above 0
 int is_prime(int n) {
-	int counter = 2, boolean = 1;
-	while (counter<n) {
+	int counter;
+	if (n < 2){
+		return 0;
+	}
+	for (counter = 2; counter < n; counter++){
 		if (n%counter == 0) {
-			boolean = 0;
-			break;
-
-		}else{
-			counter++;
+			return 0;
 		}
 	}
-
-	if (n == 1 || n == 0 ){
-		boolean = 0;
-	}
-	return boolean;
+	return 1;
 }
