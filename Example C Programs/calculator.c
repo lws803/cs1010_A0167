@@ -1,37 +1,40 @@
-#include <stdio.h> 
 
-int main () {
-   
-   char operator ; 
-   double firstNumber , secondNumber ; 
+// Performs addition, subtraction, multiplication or division depending the input from user
 
-   printf("Enter an operator (+, -, *, /) : " ) ; 
-   scanf("%c" , &operator) ; 
+# include <stdio.h>
 
-   printf("Enter two operands: " ) ; 
-   scanf("%lf %lf" , &firstNumber , &secondNumber);
+int main() {
 
-   switch (operator) 
-   {
-      case '+': 
-         printf("%.1lf + %.1lf = %.1lf" , firstNumber, secondNumber, firstNumber + secondNumber) ; 
-         break ; 
+    char operator;
+    double firstNumber,secondNumber;
 
-      case '-': 
-         printf("%.1lf - %.1lf = %.1lf" , firstNumber, secondNumber, firstNumber - secondNumber) ; 
-         break ; 
+    printf("Enter an operator (+, -, *,): ");
+    scanf("%c", &operator);
 
-      case '*': 
-         printf("%.1lf * %.1lf = %.1lf" , firstNumber, secondNumber, firstNumber * secondNumber) ; 
-         break ; 
+    printf("Enter two operands: ");
+    scanf("%lf %lf",&firstNumber, &secondNumber);
 
-      case '/': 
-         printf("%.1lf / %.1lf = %.1lf" , firstNumber, secondNumber, firstNumber / secondNumber) ;
-         break ; 
+    switch(operator)
+    {
+        case '+':
+            printf("%.1lf + %.1lf = %.1lf",firstNumber, secondNumber, firstNumber + secondNumber);
+            break;
 
-      default: 
-         printf("Error! Operator is not correct") ; 
-   }
+        case '-':
+            printf("%.1lf - %.1lf = %.1lf",firstNumber, secondNumber, firstNumber - secondNumber);
+            break;
 
-   return 0 ; 
-} 
+        case '*':
+            printf("%.1lf * %.1lf = %.1lf",firstNumber, secondNumber, firstNumber * secondNumber);
+            break;
+
+        case '/':
+            printf("%.1lf / %.1lf = %.1lf",firstNumber, secondNumber, firstNumber / secondNumber);
+            break;
+
+        // operator doesn't match any case constant (+, -, *, /)
+        default:
+            printf("Error! operator is not correct");
+    }
+    
+    return 0;
