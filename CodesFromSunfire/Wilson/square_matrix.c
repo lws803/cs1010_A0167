@@ -10,6 +10,7 @@ int main () {
 	int size;
 	
 	scanf("%d", &size);
+	printf("Matrix read:\n");
 	int i, d;
 	for (i = 0; i < size; i++){
 		for (d = 0; d < size; d++){
