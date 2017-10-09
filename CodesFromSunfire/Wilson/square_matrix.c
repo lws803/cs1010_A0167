@@ -4,6 +4,7 @@
 
 int upper_triangle (int[][max], int);
 int diag_checker(int[][max], int);
+void printMatrix(int[][max], int);
 
 int main () {
 	int arr[max][max];
@@ -17,11 +18,18 @@ int main () {
 			scanf("%d", &arr[i][d]);
 		}
 	}
+
+	printMatrix(arr, size);
+
 	if (diag_checker(arr, size) && upper_triangle(arr, size)){
-		printf("Matrix is a diagonal matrix\n");
+
+		printf("Matrix is a diagonal matrix.\n");
+		printf("Matrix is an upper triangular matrix.\n");
+
 	}else if (upper_triangle(arr, size)){
 		
-		printf("Matrix is an upper triangular matrix\n");
+		printf("Matrix is not a diagonal matrix.\n");
+		printf("Matrix is an upper triangular matrix.\n");
 	}
 
 	return 0;
@@ -60,3 +68,13 @@ int upper_triangle (int arr[][max], int size) {
 	return 1;
 }
 
+// To print values of mtx
+void printMatrix(int mtx[][max], int size) {
+	int row, col;
+
+	for (row=0; row<size; row++) {
+		for (col=0; col<size; col++) 
+			printf("%4d", mtx[row][col]);
+		printf("\n");
+	}
+}

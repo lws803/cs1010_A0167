@@ -71,7 +71,7 @@ void printMagic(int arr[][MAX_SIZE], int size) {
 
 	for (row=0; row<size; row++) {
 		for (col=0; col<size; col++) 
-			printf("%5d", arr[row][col]);
+			printf("%d ", arr[row][col]);
 		printf("\n");
 	}
 }
