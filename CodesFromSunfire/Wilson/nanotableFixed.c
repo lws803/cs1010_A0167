@@ -153,30 +153,37 @@ Sort and print the rank
 Precond: none	
 */
 void rank(int arr[][2], int size) {
+  int i, sortedArray[size][2];
+  for (i = 0; i < size; i++){
+
+    sortedArray[i][0] = arr[i][0];
+    sortedArray[i][1] = arr[i][1];
+  }
+
 	// Bubble sort algorithm 
 	int c, d, t1, t2;
 	for (c = 0; c < size; c++ ) {
 		for (d = 0; d < (size - c - 1); d++) {
-			if (arr[d][1] > arr[d+1][1]) {
-				t1 = arr[d][0];
-				t2 = arr[d][1];
+			if (sortedArray[d][1] > sortedArray[d+1][1]) {
+				t1 = sortedArray[d][0];
+				t2 = sortedArray[d][1];
 
-				arr[d][0] = arr[d+1][0];
-				arr[d][1] = arr[d+1][1];
+				sortedArray[d][0] = sortedArray[d+1][0];
+				sortedArray[d][1] = sortedArray[d+1][1];
 
-				arr[d+1][0] = t1;
-				arr[d+1][1] = t2;
+				sortedArray[d+1][0] = t1;
+				sortedArray[d+1][1] = t2;
 			}
-      else if (arr[d][1] == arr[d+1][1] && arr[d][0] > arr[d+1][0]) {
+      else if (sortedArray[d][1] == sortedArray[d+1][1] && sortedArray[d][0] > sortedArray[d+1][0]) {
         // We will compare their IDs
         t1 = arr[d][0];
         t2 = arr[d][1];
 
-        arr[d][0] = arr[d+1][0];
-        arr[d][1] = arr[d+1][1];
+        sortedArray[d][0] = sortedArray[d+1][0];
+        sortedArray[d][1] = sortedArray[d+1][1];
 
-        arr[d+1][0] = t1;
-        arr[d+1][1] = t2;
+        sortedArray[d+1][0] = t1;
+        sortedArray[d+1][1] = t2;
       }
 		}
 	}
@@ -192,8 +199,6 @@ void rank(int arr[][2], int size) {
 			printf("Invalid rank: %d\n", rank);
 		}
 	}while (rank > size || rank == 0);
-
-
-		printf("ID: %d, Score: %d\n", arr[rank-1][0], arr[rank-1][1]);
+		printf("ID: %d, Score: %d\n", sortedArray[rank-1][0], sortedArray[rank-1][1]);
 
 }
