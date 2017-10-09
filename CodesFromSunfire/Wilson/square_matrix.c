@@ -8,13 +8,8 @@ int diag_checker(int[][max], int);
 int main () {
 	int arr[max][max];
 	int size;
-
-	int arr2[][max] = {{2, -1, 3, 4, 1},{0, 7, 5, -2, 0},{0,0,6,0,4},{0,0,0,0,8},{0,0,0,0,2}};
-	int size2 = 5;
-
-	printf("Enter n: ");
+	
 	scanf("%d", &size);
-	printf("Enter matrix: \n");
 	int i, d;
 	for (i = 0; i < size; i++){
 		for (d = 0; d < size; d++){
