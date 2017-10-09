@@ -69,7 +69,7 @@ void prodMatrix(float mtxA[][MAX_COL], float mtxB[][MAX_COL],
 		// Col stepper for mtx B
 		for (col = 0; col < mtxB_col_size; col++) {
 			// Multiplier 
-			int sum = 0;
+			float sum = 0;
 			for (row2 = 0; row2 < mtxA_col_size; row2++){
 				sum += mtxA[row][row2] * mtxB[row2][col];
 			}
