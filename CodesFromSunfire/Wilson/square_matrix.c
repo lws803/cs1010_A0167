@@ -30,6 +30,9 @@ int main () {
 		
 		printf("Matrix is not a diagonal matrix.\n");
 		printf("Matrix is an upper triangular matrix.\n");
+	}else {
+		printf("Matrix is not a diagonal matrix.\n");
+		printf("Matrix is not an upper triangular matrix.\n");
 	}
 
 	return 0;
