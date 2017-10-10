@@ -57,3 +57,57 @@ void printArr(int arr[][MAXSIZE], int size) {
 		printf("\n");
 	}
 }
+
+
+
+
+void iSolitude(int arr[][MAXSIZE], int size) {
+	int i, d, leastNumber = size;
+	for (i = 0; i < size; i++){
+		int placeholder = 0;
+		for (d = 0; d < size; d++){
+			if (arr[i][d] == 1) {
+				placeholder++;
+			}
+		}
+
+		if (leastNumber > placeholder) {
+			leastNumber = placeholder;
+		}
+	}
+
+	printf("Least number of friends found is %d\n", leastNumber);
+
+	for (i = 0; i < size; i++){
+		int placeholder = 0;
+		for (d = 0; d < size; d++){
+			if (arr[i][d] == 1){
+				placeholder++;
+			}
+		}
+		if (placeholder == leastNumber){
+			printf("User %d has least number of friends\n", i);
+		}
+	}
+
+
+}
+
+void uFriend(int arr[][MAXSIZE], int size) {
+	int i, d, row;
+	// Main scan 
+	for (i = 0; i < size; i++){
+		// Scan leftwards to look for friends starting from eg. (3,3) so that no duplicates will be recorded
+		for (d = i+1; d < size; d++){
+			if (arr[i][d] == 1 && i != d) {
+				// Scan downwards to look for anyone else who's friends, starting from original row downwards
+				for (row = i+1; row < size; row++){
+					if (arr[row][d] == 1 && row != d) {
+						printf("(%d, %d)has a friend-of-friend relation.\n", i, row);
+					}
+				}
+			}
+		}
+	}
+
+}
