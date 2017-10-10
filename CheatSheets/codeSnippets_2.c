@@ -141,3 +141,22 @@ int contains (int arr[], int number, int i) {
 }
 
 
+// Checks if an array (A) is a subset of another (B)
+int isSubset(int arrA[], int sizeA, int arrB[], int sizeB) {
+	int i, d, count = 0;
+	for (i = 0; i < sizeA; i++) {
+		for (d = 0; d < sizeB; d++) {
+			if (arrA[i] == arrB[d]) {
+				count++;
+			}
+		}
+	}
+
+	// Only subset if all elements in A is present in B 
+	if (count == sizeA) {
+		return 1;
+	}
+
+	return 0;
+}
+
