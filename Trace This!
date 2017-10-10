@@ -1,0 +1,63 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    int R[4]={};
+    int r1, r2, cmd;
+    string s;
+    cout << "1 set\n2 copy\n3 add\n4 sub\n5 mul\n6 div\n7 and \n8 or\n9 xor\n--------------------\n\n";
+    cout << setw(10) << "R0" <<  setw(10) << "R1" <<  setw(10) << "R2" <<  setw(11) << "R3\n";
+    cout << setw(10) << R[0] << setw(10)  << R[1] << setw(10) << R[2] << setw(10)  << R[3] << endl << endl;
+    do{
+        getline(cin, s);
+        if(s.length()==0) break;
+        if(s.length()!=3 && s.length()>0)
+            cout << "Command not found, try again\n";
+        else{
+            cmd=s[0]-48;
+            r1=s[1]-48;
+            r2=s[2]-48;
+            if(r1>3 || r2>3&&cmd!=1){
+                cout << "Wrong register number\n";
+                continue;
+            }
+            switch(cmd){
+                case 1: R[r1]=r2;
+                        break;
+                case 2: R[r2]=R[r1];
+                        break;
+                case 3: //R[r2]=(R[r1]+R[r2])%10;
+                        R[r2]+=R[r1];
+                        break;
+                case 4: //R[r2]=(R[r2]-R[r1])>=0 ? (R[r2]-R[r1]) : (R[r2]-R[r1])+10;
+                        R[r2]-=R[r1];
+                        break;
+                case 5: //R[r2]=(R[r1]*R[r2])%10;
+                        R[r2]*=R[r1];
+                        break;
+                case 6: if(R[r1]==0){
+                            cout << "Divivsion by zero\n";
+                            continue;
+                        }
+                        R[r2]/=R[r1];
+                        break;
+                case 7: R[r2] &= R[r1];
+                        break;
+                case 8: R[r2] |= R[r1];
+                        break;
+                case 9: R[r2] ^= R[r1];
+                        break;
+            }
+            cout << setw(10) << "R0" <<  setw(10) << "R1" <<  setw(10) << "R2" <<  setw(11) << "R3\n";
+            cout << setw(10) << R[0] << setw(10)  << R[1] << setw(10) << R[2] << setw(10)  << R[3] << endl << endl;
+            /*cout << "R0 R1 R2 R3\n";
+            cout << " " << R[0] << "  " << R[1] << "  " << R[2] << "  " << R[3] << endl << endl;*/
+        }
+
+    }
+    while(s.length()!=0 );
+    return 0;
+}
