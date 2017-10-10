@@ -7,3 +7,12 @@ http://www.comp.nus.edu.sg/~cs1010/2_resources/lectures.html
 
 https://www.youtube.com/watch?v=6pbKB2TL3Jk
 TTG doesnt approve of this link.
+
+
+# Some schedule to be vary of: 
+Practical Exam #2	4 Nov 2017 (Sat):
+Session 1: 12:30-3pm
+Session 2: 3-5:30pm
+
+Exam: 
+29 Nov 2017 (Wed)	5-7pm	
