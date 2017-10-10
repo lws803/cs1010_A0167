@@ -94,16 +94,16 @@ void iSolitude(int arr[][MAXSIZE], int size) {
 }
 
 void uFriend(int arr[][MAXSIZE], int size) {
-	int i, d, row;
+	int i, d, col;
 	// Main scan 
 	for (i = 0; i < size; i++){
 		// Scan leftwards to look for friends starting from eg. (3,3) so that no duplicates will be recorded
-		for (d = i+1; d < size; d++){
-			if (arr[i][d] == 1 && i != d) {
-				// Scan downwards to look for anyone else who's friends, starting from original row downwards
-				for (row = i+1; row < size; row++){
-					if (arr[row][d] == 1 && row != d) {
-						printf("(%d, %d)has a friend-of-friend relation.\n", i, row);
+		for (d = 0; d < size; d++){
+			// if it detects a friend. search for his friend's friend
+			if (d != i && arr[i][d] == 1) {
+				for (col = i; col < size; col++) {
+					if (col != d && arr[d][col] == 1 && col != i && arr[i][col] == 0) {
+						printf("%d %d \n", i, col);
 					}
 				}
 			}
