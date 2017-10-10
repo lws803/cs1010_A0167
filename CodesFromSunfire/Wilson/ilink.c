@@ -6,6 +6,7 @@ void printArr(int [][MAXSIZE], int);
 void readFriends(int [][MAXSIZE], int);
 void iSolitude(int [][MAXSIZE], int);
 void uFriend(int [][MAXSIZE], int);
+int contains (int [], int, int);
 
 int main() {
 	int friendArr[MAXSIZE][MAXSIZE] = { {0} };
@@ -76,7 +77,7 @@ void iSolitude(int arr[][MAXSIZE], int size) {
 		}
 	}
 
-	printf("Least number of friends found is %d\n", leastNumber);
+	printf("The least number of friends found is %d\n", leastNumber);
 
 	for (i = 0; i < size; i++){
 		int placeholder = 0;
@@ -94,19 +95,24 @@ void iSolitude(int arr[][MAXSIZE], int size) {
 }
 
 void uFriend(int arr[][MAXSIZE], int size) {
-	int i, d, col;
+	int i, d, row;
 	// Main scan 
 	for (i = 0; i < size; i++){
+		int start = i+1;
 		// Scan leftwards to look for friends starting from eg. (3,3) so that no duplicates will be recorded
 		for (d = 0; d < size; d++){
-			// if it detects a friend. search for his friend's friend
-			if (d != i && arr[i][d] == 1) {
-				for (col = i; col < size; col++) {
-					if (col != d && arr[d][col] == 1 && col != i && arr[i][col] == 0) {
-						printf("%d %d \n", i, col);
+			if (i != d && arr[i][d] == 1) {
+
+
+				// Fix it for the event when eg. ID 0 has two common friends with 3. (0,1,3) and (0,4,3)
+				for (row = start; row < size; row++){
+					if (arr[row][d] == 1 && row != d && arr[row][i] != 1) {
+
+						printf("(%d,%d) has a friend-of-friend relation.\n", i, row);
 					}
 				}
 			}
+			
 		}
 	}
 
