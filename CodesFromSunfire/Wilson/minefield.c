@@ -54,8 +54,8 @@ int main () {
 int searchFunc(char minefield[][MAX], char search[][3]){
 	int c, d, count = 0;;
 
-	for (c = 0; c < MAX - 1; c++){
-		for (d = 0; d < MAX - 1; d++) {
+	for (c = 0; c < MAX - 3; c++){
+		for (d = 0; d < MAX - 3; d++) {
 			if (minefield[c][d] == search[0][0] && minefield[c][d+1] == search[0][1] && minefield[c][d+2] == search[0][2]){
 				if (minefield[c+1][d] == search[1][0] && minefield[c+1][d+1] == search[1][1] && minefield[c+1][d+2] == search[1][2]){
 					count++;
