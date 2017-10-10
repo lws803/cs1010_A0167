@@ -10,6 +10,7 @@
 int jump(int, int, int[]);
 void printBridge(int, int[]);
 int checkGameState(int, int[]);
+int checkGameState_possibleMoves (int, int[]);
 
 int main(void) {
 
@@ -38,7 +39,6 @@ int main(void) {
 	printf("Please start moving the frogs\n");
 
 	while(!checkGameState(lengthOfBridge, bridge)) {
-		int position;
 		printf("Move the frog at position: ");
 		scanf("%d", &position);
 
@@ -157,5 +157,23 @@ int checkGameState (int len, int arr[]) {
 }
 
 
+// Another method of checking stuck state 
+// 1 means got possible moves, 0 means no possible moves
+int checkGameState_possibleMoves (int len, int arr[]) {
+	int arr2[1000], i, d;
+	// Brute force and check for all possible moves 
 
+	// First copy the old array into the new array 
+	for (i = 0; i < len; i++){
+		arr2[i] = arr[i];
+	}
 
+	for (d = 0; d <= len && !jump(d, len, arr2); d++) {
+		// If all attempts have failed
+		if (d == len) {
+			return 0;
+		}
+	}
+
+	return 1;
+}
