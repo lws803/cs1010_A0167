@@ -2,6 +2,7 @@
 
 
 void swap (int * , int * );
+void printArr (int *);
 
 int main () {
 	// Show that variable != pointer 
@@ -69,6 +70,13 @@ int main () {
 	// Now a and b have both been affected 
 	// To allow the function to modify the values outside the function 
 
+
+	// Works for assigning arrays too and the calling it using another pointer function 
+	int arr[5] = {1,2,3,4,5};
+	int *arr_ptr = arr;
+
+	printArr(arr_ptr);
+
 }
 
 
@@ -84,4 +92,9 @@ void swap (int *ptr1, int *ptr2) {
 // Do not use pointer functions when you have no need for it 
 // Note that pointer functions would affect the original value from the previous function itself 
 
-
+void printArr (int *ptr) {
+	int i;
+	for (i = 0; i < 5; i++){
+		printf("%d\n", ptr[i]);
+	}
+}
