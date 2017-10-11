@@ -195,3 +195,32 @@ void printRank (int arr[][2], int size, int rank) {
   printf("ID: %d SCORE: %d\n", arr[comparisonIndex][0], smallestElement);
 
 }
+
+// To insert an element into an ordered array, <uses insert function from swift_ports.c>
+// And returns the new size of the array.. 
+// Precond: ID inputs must be in order 
+
+int insertTable (int arr[][2], int size) {
+
+  int id, score, i = 0;
+
+  printf("Please input the student's ID...\n");
+  scanf("%d", &id);
+  printf("Please input the student's score...\n");
+  scanf("%d", &score);
+
+
+  for (i = 0; i < size; i++){
+      if (arr[i][1] > score) {
+        size = insert(arr, id, score, i, size);
+        break;
+      } 
+    }
+  if (i == size) {
+    arr[size][0] = id;
+    arr[size][1] = score;
+    size++;
+  }
+
+  return size;
+}
