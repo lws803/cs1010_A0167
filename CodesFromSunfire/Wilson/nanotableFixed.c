@@ -106,29 +106,24 @@ Precond: no negative scores plox
 
 int insertTable (int arr[][2], int size) {
 
-  int id, score, i;
+  int id, score, i = 0;
 
 	printf("Please input the student's ID...\n");
   scanf("%d", &id);
   printf("Please input the student's score...\n");
   scanf("%d", &score);
 
-  
-  if (size == 0) {
-      // Initialise 
-      size = insert(arr, id, score, 0, size);
-  }else {
-    for (i = 0; i < size; i++){
+
+  for (i = 0; i < size; i++){
       if (arr[i][1] > score) {
         size = insert(arr, id, score, i, size);
         break;
       } 
     }
-    if (i == size) {
-      arr[size][0] = id;
-      arr[size][1] = score;
-      size++;
-    }
+  if (i == size) {
+    arr[size][0] = id;
+    arr[size][1] = score;
+    size++;
   }
 
   return size;
