@@ -181,6 +181,7 @@ void rank(int arr[][2], int size) {
 
 }
 
+// This function inserts an element into the array and shifts everything right of it forward.
 
 int insert (int arr[][2], int element, int element2, int atIndex, int size) {
     int i;
