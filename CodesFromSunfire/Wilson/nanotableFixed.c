@@ -20,6 +20,7 @@ int insertTable (int[][2], int);
 int sumArray (int[][2], int);
 int ave(int, int);
 void rank(int[][2], int);
+int insert (int [][2], int, int, int, int);
 
 int main (void) {
 
@@ -105,13 +106,30 @@ Precond: no negative scores plox
 
 int insertTable (int arr[][2], int size) {
 
+  int id, score, i;
 
 	printf("Please input the student's ID...\n");
-  scanf("%d", &arr[size][0]);
+  scanf("%d", &id);
   printf("Please input the student's score...\n");
-  scanf("%d", &arr[size][1]);
+  scanf("%d", &score);
 
-  size++;
+  
+  if (size == 0) {
+      // Initialise 
+      size = insert(arr, id, score, 0, size);
+  }else {
+    for (i = 0; i < size; i++){
+      if (arr[i][1] > score) {
+        size = insert(arr, id, score, i, size);
+        break;
+      } 
+    }
+    if (i == size) {
+      arr[size][0] = id;
+      arr[size][1] = score;
+      size++;
+    }
+  }
 
   return size;
 }
@@ -153,43 +171,7 @@ Sort and print the rank
 Precond: none	
 */
 void rank(int arr[][2], int size) {
-  int i, sortedArray[size][2];
-  for (i = 0; i < size; i++){
-
-    sortedArray[i][0] = arr[i][0];
-    sortedArray[i][1] = arr[i][1];
-  }
-
-	// Bubble sort algorithm 
-	int c, d, t1, t2;
-	for (c = 0; c < size; c++ ) {
-		for (d = 0; d < (size - c - 1); d++) {
-			if (sortedArray[d][1] > sortedArray[d+1][1]) {
-				t1 = sortedArray[d][0];
-				t2 = sortedArray[d][1];
-
-				sortedArray[d][0] = sortedArray[d+1][0];
-				sortedArray[d][1] = sortedArray[d+1][1];
-
-				sortedArray[d+1][0] = t1;
-				sortedArray[d+1][1] = t2;
-			}
-      else if (sortedArray[d][1] == sortedArray[d+1][1] && sortedArray[d][0] > sortedArray[d+1][0]) {
-        // We will compare their IDs
-        t1 = arr[d][0];
-        t2 = arr[d][1];
-
-        sortedArray[d][0] = sortedArray[d+1][0];
-        sortedArray[d][1] = sortedArray[d+1][1];
-
-        sortedArray[d+1][0] = t1;
-        sortedArray[d+1][1] = t2;
-      }
-		}
-	}
-
 	int rank;
-	
 
 	do {
 		printf("Please input the rank (1 - %d)...\n", size);
@@ -199,6 +181,21 @@ void rank(int arr[][2], int size) {
 			printf("Invalid rank: %d\n", rank);
 		}
 	}while (rank > size || rank == 0);
-		printf("ID: %d, Score: %d\n", sortedArray[rank-1][0], sortedArray[rank-1][1]);
+		//printf("ID: %d, Score: %d\n", sortedArray[rank-1][0], sortedArray[rank-1][1]);
+    printf("ID: %d, Score: %d\n", arr[rank-1][0], arr[rank-1][1]);
 
+}
+
+
+int insert (int arr[][2], int element, int element2, int atIndex, int size) {
+    int i;
+    for (i = size-1; i >= atIndex; i--) {
+        arr[i+1][0] = arr[i][0];
+        arr[i+1][1] = arr[i][1];
+    }
+    arr[atIndex][0] = element;
+    arr[atIndex][1] = element2;
+
+    size++;
+    return size;
 }

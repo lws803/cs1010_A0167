@@ -160,3 +160,38 @@ int isSubset(int arrA[], int sizeA, int arrB[], int sizeB) {
 	return 0;
 }
 
+
+// To print rank according to score. 
+// Precond: Must specify max score, in this case its 100
+
+void printRank (int arr[][2], int size, int rank) {
+
+  int i, d, smallestElement = 100, comparisonIndex;
+
+  for (i = 0; i < size ; i++) {
+    // Find the smallest element 
+    if (arr[i][1] < smallestElement) {
+      smallestElement = arr[i][1];
+    }
+  }
+
+  // To find the next smallest
+  for (i = 1; i < rank; i++){
+    int smallestDifference = 100;
+    for (d = 0; d < size; d++){
+      int difference = arr[d][1] - smallestElement;
+      if (difference < smallestDifference && difference > 0) {
+        smallestDifference = difference;
+        comparisonIndex = d;
+      }else if (difference == 0) {
+        // Might be dupe or might be similar score, check ID and further eval 
+
+      }
+    }
+    // Next smallest number 
+    smallestElement = arr[comparisonIndex][1];
+  }
+
+  printf("ID: %d SCORE: %d\n", arr[comparisonIndex][0], smallestElement);
+
+}

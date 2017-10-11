@@ -31,7 +31,7 @@ int size (int arr[]) {
 
 int insert (int arr[], int element, int atIndex, int size) {
     int i;
-    for (i = size-1, i >= atIndex, i--) {
+    for (i = size-1; i >= atIndex; i--) {
         arr[i+1] = arr[i];
     }
     arr[atIndex] = element;
