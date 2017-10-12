@@ -224,3 +224,18 @@ int insertTable (int arr[][2], int size) {
 
   return size;
 }
+
+
+
+// Trickling array 
+// To insert an element at the top of the array and push the rest down backwards
+
+void trickle (int arr[], int size, int index) {
+	int i, element;
+	element = arr[index];
+
+	for (i = index; i < size-1; i++) {
+		arr[i] = arr[i+1];
+	}
+	arr[size - 1] = element;
+}
