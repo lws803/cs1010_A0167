@@ -7,12 +7,13 @@ int insertionSort (int[], int);
 int selectionSort (int[], int);
 int enhancedBubble (int[], int);
 int shakerSort(int[], int);
+int insertionSortV2(int[],int);
 
 int main () {
 	int choice;
 	int arr1[1000], arr2[2000], arr4[4000], arr8[8000], arr16[16000];
 
-	printf("1: bubblesort, 2: insertion sort, 3: selection sort, 4: Enhanced bubblesort, 5: Shaker sort\n");
+	printf("1: bubblesort, 2: insertion sort, 3: selection sort, 4: Enhanced bubblesort, 5: Shaker sort, 6: Insertion sort v2\n");
 
 	printf("What sort you want?: ");
 	scanf("%d", &choice);
@@ -62,6 +63,15 @@ int main () {
 		printf("size 8000 : %d \n", shakerSort(arr8, 8000));
 		printf("size 16000 : %d \n", shakerSort(arr16, 16000));
 		printf("-----Best case: O(n), worst case: O(n^2)-----\n"); 
+		break;
+		case 6: 
+		printf("Insertion sort V2 selected\n");
+		printf("size 1000 : %d \n", selectionSort(arr1, 1000));
+		printf("size 2000 : %d \n", selectionSort(arr2, 2000));
+		printf("size 4000 : %d \n", selectionSort(arr4, 4000));
+		printf("size 8000 : %d \n", selectionSort(arr8, 8000));
+		printf("size 16000 : %d \n", selectionSort(arr16, 16000));
+		printf("-----Best case: O(n), worst case: O(n^2)-----\n");
 		break;
 		default:
 		printf("Bubble sort selected\n");
@@ -148,7 +158,7 @@ int enhancedBubble (int arr[], int n) {
 	clock_t start, finish;
 	
 	start = clock();	
-	for (i = 0; (i < n - 1) && isNotSorted; i++){
+	for (i = 0; (i < n - 1) && isNotSorted; i++){	// IsNotSorted will cause the loop to break if there is no swaps occurring.
 		int j;
 		isNotSorted = 0;
 		for (j = 0; j < n - i - 1; j++) {
@@ -195,3 +205,34 @@ int shakerSort(int array[], int size) {
 
     return (int)(finish - start);
 }
+
+int insertionSortV2(int arr[],int size){
+	clock_t start,finish;
+	int i,j,temp;
+	
+	start = clock();
+	for (i=0;i<size;i++){
+		temp = arr[i];
+		j = i-1;
+		while ((j>=0) && (temp<arr[j])){
+			arr[j+1] = arr[j];		// Only does one assignment each time it looks for the space for the element.
+			j--;
+		}
+		arr[j+1] = temp; 			// Once it finds the location then assign. FASTER than doing swapping as swapping does 3 actions each time.
+	}
+	finish = clock();
+	return (int)(finish-start);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
