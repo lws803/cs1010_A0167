@@ -271,3 +271,32 @@ int checkHorizontal (int arr[][MAX], int number, int startingX, int startingY) {
 	}
 	return count;
 }
+
+// Check neighbouring points of a single coordinate in a multi dimensional array 
+
+int check_all_neighbours (char community[][DIM_COL+2], int x, int y) {
+	int neighbours = 0;
+	int i;
+	// scan top row 
+	for (i = x-1; i <= x+1; i++) {
+		if (community[y-1][i] == 'O') {
+			neighbours++;
+		}
+	} 
+	// scan bottom row
+	for (i = x-1; i <= x+1; i++) {
+		if (community[y+1][i] == 'O') {
+			neighbours++;
+		}
+	}
+
+	if (community[y][x-1] == 'O') {
+		neighbours++;
+	}
+	if (community[y][x+1] == 'O') {
+		neighbours++;
+	}
+
+	return neighbours;
+}
+
