@@ -239,3 +239,35 @@ void trickle (int arr[], int size, int index) {
 	}
 	arr[size - 1] = element;
 }
+
+
+// Trace a multi-dimensional array for elements that chain diagonally rightwards 
+
+int checkDiag (int arr[][MAX], int number, int startingX, int startingY) {
+	int i, d, count = 0;
+	for (i = startingX; i < DIM; i++) {
+		if (board[startingY][i] == number) {
+			count++;
+			printf("%d\n", count);
+		}else {
+			break;
+		}
+		startingY++;
+	}
+	return count;
+}
+
+// Trace a multi-dimensional array for elements that chain horizontally forwards 
+
+int checkHorizontal (int arr[][MAX], int number, int startingX, int startingY) {
+	int i, count = 0;
+	for (i = startingX; i < DIM; i++) {
+		if (board[startingY][i] == number) {
+			count++;
+		}else {
+			break;
+		}
+
+	}
+	return count;
+}
