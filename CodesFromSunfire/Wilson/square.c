@@ -48,24 +48,34 @@ int scanSquare(int square[][MAXSIZE]) {
 	return size;
 }
 
+/**
+Checks if the square is semi magic or not
+Precond: none
+*/
+
 int isSemiMagic (int square[][MAXSIZE], int size) {
 	// condition 1: must contain all numbers from 1 to n^2
 	// condition 2: row sums and column sums must be the same 
 
 	// To check if a square contains all numbers from 1 to n^2
-	int i,d, sum = 0; 
-	for (i = 0; i < size; i++) {
-		for (d = 0; d < size; d++) {
-			sum += square[i][d];
+	// Using brute force 
+	int i,d, check, count = 0; 
+	for (check = 1; check <= size*size; check++) {
+		for (i = 0; i < size; i++) {
+			for (d = 0; d < size; d++) {
+				if (square[i][d] == check) {
+					count++;
+				}
+			}
 		}
 	}
-	int checker = (size*size)*(size*size+1)/2;
-	if (checker != sum) {
+	
+	if (count != size*size) {
 		return 0;
 	}
-	int constant = 0, firstRun = 0;
 
 
+	int constant = 0, firstRun = 0, sum = 0;
 	// Column checker 
 	for (i = 0; i < size; i++) {
 		sum = 0;
