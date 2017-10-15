@@ -251,8 +251,6 @@ int search_south_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int
 
 int wordlen(char word[WORDSIZE]) {
 	int i;
-	for (i = 0; word[i] != '\0'; i++) {
-
-	}
+	for (i = 0; word[i] != '\0'; i++);
 	return --i;
 }
