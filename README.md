@@ -8,6 +8,9 @@ http://www.comp.nus.edu.sg/~cs1010/2_resources/lectures.html
 https://www.youtube.com/watch?v=6pbKB2TL3Jk
 TTG doesnt approve of this link.
 
+Common problems to try solving:
+https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/
+
 
 # Some schedule to be vary of: 
 
