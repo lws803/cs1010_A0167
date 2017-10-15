@@ -117,7 +117,7 @@ void search_for_neighbours (char matrix[MAX][MAX], int size, char word[WORDSIZE]
 }	
 
 int search_north (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	for (i = y-2; i >= 0 && word[index] != '\0'; i--) {
 		if (matrix[i][x] != word[index++]) {
 			return 0;
@@ -135,7 +135,7 @@ int search_north (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, i
 
 
 int search_south (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	for (i = y+2; i < size && word[index] != '\0'; i++) {
 		if (matrix[i][x] != word[index++]) {
 			return 0;
@@ -150,7 +150,7 @@ int search_south (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, i
 	}
 }
 int search_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	for (i = x+2; i < size && word[index] != '\0'; i++) {
 		if (matrix[y][i] != word[index++]) {
 			return 0;
@@ -166,7 +166,7 @@ int search_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, in
 }
 
 int search_west (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	for (i = x-2; i >= 0 && word[index] != '\0'; i--) {
 		if (matrix[y][i] != word[index++]) {
 			return 0;
@@ -182,7 +182,7 @@ int search_west (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, in
 }
 
 int search_north_west (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	y--;
 	for (i = x-2; i >= 0 && word[index] != '\0'; i--) {
 		if (matrix[--y][i] != word[index++]) {
@@ -199,7 +199,7 @@ int search_north_west (char matrix[MAX][MAX], int size, char word[WORDSIZE], int
 }
 
 int search_north_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	y++;
 	for (i = x+2; i < size && word[index] != '\0'; i++) {
 		if (matrix[++y][i] != word[index++]) {
@@ -216,7 +216,7 @@ int search_north_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int
 }
 
 int search_south_west (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	y++;
 	for (i = x-2; i >= 0 && word[index] != '\0'; i--) {
 		if (matrix[++y][i] != word[index++]) {
@@ -233,7 +233,7 @@ int search_south_west (char matrix[MAX][MAX], int size, char word[WORDSIZE], int
 }
 
 int search_south_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
-	int i, index = 2, count = 1;
+	int i, index = 2, count = 2;
 	y++;
 	for (i = x+2; i < size && word[index] != '\0'; i++) {
 		if (matrix[++y][i] != word[index++]) {
@@ -252,5 +252,5 @@ int search_south_east (char matrix[MAX][MAX], int size, char word[WORDSIZE], int
 int wordlen(char word[WORDSIZE]) {
 	int i;
 	for (i = 0; word[i] != '\0'; i++);
-	return --i;
+	return i;
 }
