@@ -133,3 +133,14 @@ void charTest () {
     }
 }
 ---------------------------------------------------------------------------------------------------------------------------
+int main () {
+
+    int i = 24;
+    while (1) { // This occurence also works when its a conditional statement 
+        int i = 11;
+        printf("i = %d\n", i); // Output: will print 11. This is because the i initiated within while loop stays in while loop
+    }
+
+    printf("i = %d\n", i); // Output: will print 24 
+}
+---------------------------------------------------------------------------------------------------------------------------
