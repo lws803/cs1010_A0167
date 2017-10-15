@@ -300,3 +300,62 @@ int check_all_neighbours (char community[][DIM_COL+2], int x, int y) {
 	return neighbours;
 }
 
+// Check for neighbours in a specific direction and call the respective checkers to traverse in that direction 
+// TODO: Find a way to make this more efficient. 
+void search_for_neighbours (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
+	// Found second character on North
+	if (matrix[y-1][x] == word[1]) {
+		if (search_north(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}
+	// Found second char on south
+	if (matrix[y+1][x] == word[1]) {
+		if (search_south(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}
+
+	// Found second char on east 
+	if (matrix[y][x+1] == word[1]) {
+		if (search_east(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}
+
+	// Found second char on west
+	if (matrix[y][x-1] == word[1]) {
+		if (search_west(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	} 
+
+	// Found second char on NW 
+	if (matrix[y-1][x-1] == word[1]) {
+		if (search_north_west(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}
+
+	// Found second char on NE
+	if (matrix[y-1][x+1] == word[1]) {
+		if (search_north_east(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}
+
+	// Found second char on SE 
+	if (matrix[y+1][x+1] == word[1]) {
+		if (search_south_east(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}
+
+	// Found second char on SW 
+	if (matrix[y+1][x-1] == word[1]) {
+		if (search_south_west(matrix, size, word, x, y)) {
+			printf("%d %d\n", x, y);
+		}
+	}  
+}
+
