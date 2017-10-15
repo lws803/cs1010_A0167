@@ -301,7 +301,6 @@ int check_all_neighbours (char community[][DIM_COL+2], int x, int y) {
 }
 
 // Check for neighbours in a specific direction and call the respective checkers to traverse in that direction 
-// TODO: Find a way to make this more efficient. 
 void search_for_neighbours (char matrix[MAX][MAX], int size, char word[WORDSIZE], int x, int y) {
 	// Found second character on North
 	if (matrix[y-1][x] == word[1]) {
@@ -359,3 +358,18 @@ void search_for_neighbours (char matrix[MAX][MAX], int size, char word[WORDSIZE]
 	}  
 }
 
+// More efficient neighbours search which searches like a clock 
+
+void search_surrounding (int arr[MAX][MAX], int x, int y) {
+	int i, d;
+	for (i = -1; y+i < MAX && y+i >= 0 && i < 2; i++) {
+		for (d = -1; x+d < MAX && x+d >= 0 && d < 2; d++) {
+			if (i == 0 && d == 0) {
+				// position is at original coords
+			}else {
+				printf("%d ", arr[y+i][x+d]);
+			}
+		}
+	}
+	printf("\n");
+}
