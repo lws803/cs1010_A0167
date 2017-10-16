@@ -59,11 +59,12 @@ int isSemiMagic (int square[][MAXSIZE], int size) {
 
 	// To check if a square contains all numbers from 1 to n^2
 	// Using brute force 
-	int i,d, check, count = 0; 
+	int i,d, check, count = 0, check_value = 1; 
 	for (check = 1; check <= size*size; check++) {
 		for (i = 0; i < size; i++) {
 			for (d = 0; d < size; d++) {
-				if (square[i][d] == check) {
+				if (square[i][d] == check_value) {
+					check_value++;
 					count++;
 				}
 			}
