@@ -20,6 +20,7 @@ void write_ans_sheet(char [MAX][MAX], int);
 int main () {
 	char word[MAX]; 
 	char matrix[MAX][MAX];
+	srand(time(NULL));
 
 	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%8+1;
 
