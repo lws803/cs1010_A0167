@@ -15,6 +15,7 @@ int generate_west (char [MAX][MAX], int, char [MAX], int, int);
 int generate_general (char [MAX][MAX], int, char [MAX], int, int, int);
 void fill (char [MAX][MAX], int);
 void write(char [MAX][MAX], int);
+void write_ans_sheet(char [MAX][MAX], int);
 
 int main () {
 	char word[MAX]; 
@@ -56,7 +57,7 @@ int main () {
 	
 	printf("\n-------VISIBLE ANSWERS-------\n");
 	display(matrix, size);
-
+	write_ans_sheet(matrix, size);
 
 	fill(matrix, size);
 	printf("\n-------INVISIBLE ANSWERS-------\n");
@@ -81,7 +82,19 @@ void display (char matrix[MAX][MAX], int size) {
 
 void write(char matrix[MAX][MAX], int size) {
 	int i, d;
-	FILE *f = fopen("file.txt", "w");
+	FILE *f = fopen("word_search.txt", "w");
+	for (i = 0; i < size; i++) {
+		for (d = 0; d < size; d++) {
+			fprintf(f, "%c ", matrix[i][d]);
+		}
+		fprintf(f, "\n");
+	}
+	fclose(f);
+}
+
+void write_ans_sheet(char matrix[MAX][MAX], int size) {
+	int i, d;
+	FILE *f = fopen("word_search_ans.txt", "w");
 	for (i = 0; i < size; i++) {
 		for (d = 0; d < size; d++) {
 			fprintf(f, "%c ", matrix[i][d]);
