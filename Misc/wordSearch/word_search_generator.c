@@ -20,7 +20,7 @@ int main () {
 	char word[MAX]; 
 	char matrix[MAX][MAX];
 
-	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%7+1;
+	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%8+1;
 
 	printf("Enter size of word search: ");
 	scanf("%d", &size);
@@ -46,7 +46,7 @@ int main () {
 		}
 		while (!generate_general(matrix, size, word, x, y, Case)) {
 			// Determines the number of cases that can be randomly generated 
-			Case = rand()%7+1;
+			Case = rand()%8+1;
 			x = rand()%size-1 + 0;
 			y = rand()%size-1 + 0;
 		}
@@ -113,20 +113,14 @@ void fill (char matrix[MAX][MAX], int size) {
 int generate_general (char matrix[MAX][MAX], int size, char word[MAX], int x, int y, int Case) {
 	int boolean = 0;
 	switch(Case) {
-		case 1:
+		case 1: case 5: case 6: 
 		boolean = generate_south(matrix, size, word, x, y);
 		break;
 		case 2:
 		boolean = generate_SE(matrix, size, word, x, y);
 		break;
-		case 3:
+		case 3: case 4:
 		boolean = generate_east(matrix, size, word, x, y);
-		break;
-		case 4:
-		boolean = generate_east(matrix, size, word, x, y);
-		break;
-		case 5:
-		boolean = generate_south(matrix, size, word, x, y);
 		break;
 		default:
 		boolean = generate_east(matrix, size, word, x, y);
