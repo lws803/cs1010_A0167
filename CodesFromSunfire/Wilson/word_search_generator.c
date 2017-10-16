@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-#define MAX 50
+#define MAX 1000
 
 int generate_SE (char [MAX][MAX], int , char [MAX], int, int);
 int word_len (char [MAX]);
@@ -13,13 +13,14 @@ int generate_south (char [MAX][MAX], int, char [MAX], int, int);
 int generate_east (char [MAX][MAX], int, char [MAX], int, int);
 int generate_west (char [MAX][MAX], int, char [MAX], int, int);
 int generate_general (char [MAX][MAX], int, char [MAX], int, int, int);
-
+void fill (char [MAX][MAX], int);
+void write(char [MAX][MAX], int);
 
 int main () {
-	srand(time(NULL));
 	char word[MAX]; 
 	char matrix[MAX][MAX];
-	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%6+1;
+
+	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%7+1;
 
 	printf("Enter size of word search: ");
 	scanf("%d", &size);
@@ -32,11 +33,9 @@ int main () {
 		}
 	}
 
-	// TODO: Add more cases of word traversal and finally dash replacement with random letters 
-	// Also, add a condition to only accept upper case letters 
-
 	// Generate the word search	
 	// Keeps the prog running as long as user does not press ctrl-D
+	// Precond: Only key in upper case letters if you want the answers to be harder to find :) 
 	printf("Enter word: ");
 	while(scanf("%s", word) != EOF) {
 		int length = word_len(word);
@@ -47,16 +46,25 @@ int main () {
 		}
 		while (!generate_general(matrix, size, word, x, y, Case)) {
 			// Determines the number of cases that can be randomly generated 
-			Case = rand()%6+1;
+			Case = rand()%7+1;
 			x = rand()%size-1 + 0;
 			y = rand()%size-1 + 0;
 		}
-		display(matrix, size);
+		//display(matrix, size);
 		printf("Enter word: ");
 	}
 	
-	printf("\nDone\n\n");
+	printf("\n-------VISIBLE ANSWERS-------\n");
 	display(matrix, size);
+
+
+	fill(matrix, size);
+	printf("\n-------INVISIBLE ANSWERS-------\n");
+	display(matrix, size);
+
+
+	// Write to file 
+	write(matrix, size);
 
 	return 0;
 }
@@ -71,6 +79,18 @@ void display (char matrix[MAX][MAX], int size) {
 	}
 }
 
+void write(char matrix[MAX][MAX], int size) {
+	int i, d;
+	FILE *f = fopen("file.txt", "w");
+	for (i = 0; i < size; i++) {
+		for (d = 0; d < size; d++) {
+			fprintf(f, "%c ", matrix[i][d]);
+		}
+		fprintf(f, "\n");
+	}
+	fclose(f);
+}
+
 
 int word_len (char word[MAX]) {
 	int i;
@@ -78,24 +98,38 @@ int word_len (char word[MAX]) {
 	return i;
 }
 
+void fill (char matrix[MAX][MAX], int size) {
+	int i, d;
+	for (i = 0; i < size; i++) {
+		for (d= 0; d < size; d++) {
+			char randomletter = 'A' + (rand() % 26);
+			if (matrix[i][d] == '-') {
+				matrix[i][d] = randomletter;
+			}	
+		}
+	}
+}
+
 int generate_general (char matrix[MAX][MAX], int size, char word[MAX], int x, int y, int Case) {
 	int boolean = 0;
 	switch(Case) {
 		case 1:
-		boolean = generate_north(matrix, size, word, x, y);
-		break;
-		case 2:
 		boolean = generate_south(matrix, size, word, x, y);
 		break;
-		case 3:
+		case 2:
 		boolean = generate_SE(matrix, size, word, x, y);
 		break;
-		case 4:
-		boolean = generate_west(matrix, size, word, x, y);
-		break;
-		case 5:
+		case 3:
 		boolean = generate_east(matrix, size, word, x, y);
 		break;
+		case 4:
+		boolean = generate_east(matrix, size, word, x, y);
+		break;
+		case 5:
+		boolean = generate_south(matrix, size, word, x, y);
+		break;
+		default:
+		boolean = generate_east(matrix, size, word, x, y);
 	}
 
 	return boolean;
