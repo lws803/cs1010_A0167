@@ -358,7 +358,7 @@ void search_for_neighbours (char matrix[MAX][MAX], int size, char word[WORDSIZE]
 	}  
 }
 
-// More efficient neighbours search which searches like a clock 
+// Compass search algo  
 
 void search_surrounding (int arr[MAX][MAX], int x, int y) {
 	int i, d;
