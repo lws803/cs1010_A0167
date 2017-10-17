@@ -156,3 +156,8 @@ while( token2 != NULL ) {
     
     token2 = strtok(NULL, s2); // If we remove this, then it will result in an infinite loop 
 }
+
+---------------------------------------------------------------------------------------------------------------------------
+char str[20] = "Hello world";
+
+printf("%lu\n", strlen(str)); // Outputs 11, number of letters including whitespace 
