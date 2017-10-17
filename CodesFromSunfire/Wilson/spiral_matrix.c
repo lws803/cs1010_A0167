@@ -48,8 +48,6 @@ void populate (int matrix[MAX][MAX], int size) {
 	}
 }
 
-// Precond: Only works with odd numbered squares? 
-
 int spiral (int matrix[MAX][MAX], int size, int sequence) {
 	int i, keep_spiral = 1;
 	// Right
@@ -68,8 +66,6 @@ int spiral (int matrix[MAX][MAX], int size, int sequence) {
 	for (i = size - (sequence + 1); i > sequence  ; i--) {
 		printf("%d ", matrix[i][sequence]);
 	}
-
-
 	if (sequence == size/2 && size%2 == 0) {
 		keep_spiral = 0;
 	}else if (sequence == size/2) {

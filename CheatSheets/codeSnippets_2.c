@@ -373,3 +373,34 @@ void search_surrounding (int arr[MAX][MAX], int x, int y) {
 	}
 	printf("\n");
 }
+
+// Spiraled matrix - loop this in main and increment sequence after each function call 
+// Keep looping as long as spiral returns 1; 
+
+int spiral (int matrix[MAX][MAX], int size, int sequence) {
+	int i, keep_spiral = 1;
+	// Right
+	for (i = sequence; i < size - (sequence + 1); i++) {
+		printf("%d ", matrix[sequence][i]);
+	}
+	// Down 
+	for (i = sequence; i < size - (sequence + 1); i++) {
+		printf("%d ", matrix[i][size - (sequence + 1)]);
+	}
+	// Left 
+	for (i = size - (sequence + 1); i > sequence; i--) {
+		printf("%d ", matrix[size - (sequence + 1)][i]);
+	}
+	// Up 
+	for (i = size - (sequence + 1); i > sequence  ; i--) {
+		printf("%d ", matrix[i][sequence]);
+	}
+	if (sequence == size/2 && size%2 == 0) {
+		keep_spiral = 0;
+	}else if (sequence == size/2) {
+		keep_spiral = 0;
+		printf("%d ", matrix[size/2][size/2]);
+	}
+
+	return keep_spiral;
+}
