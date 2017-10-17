@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 #define MAX 1000
 
 int generate_SE (char [MAX][MAX], int , char [MAX], int, int);
-int word_len (char [MAX]);
 void display (char [MAX][MAX], int);
 int generate_north (char [MAX][MAX], int, char [MAX], int, int);
 int generate_south (char [MAX][MAX], int, char [MAX], int, int);
@@ -39,20 +39,28 @@ int main () {
 	// Keeps the prog running as long as user does not press ctrl-D
 	// Precond: Only key in upper case letters if you want the answers to be harder to find :) 
 	printf("Enter word: ");
+	int totalsum = 0;
 	while(scanf("%s", word) != EOF) {
-		int length = word_len(word);
+		int length = strlen(word);
 		if (length > size || length < 3) {
 			printf("Word exceeding board or fewer than 3\n");
 			printf("Enter word: ");
 			continue;
 		}
-		while (!generate_general(matrix, size, word, x, y, Case)) {
+		totalsum += length;
+		float density = (float)totalsum/(size*size);
+		printf("Density: %f\n", density);
+		while (!generate_general(matrix, size, word, x, y, Case) && density < 0.6) {
 			// Determines the number of cases that can be randomly generated 
 			Case = rand()%8+1;
 			x = rand()%size-1 + 0;
 			y = rand()%size-1 + 0;
 		}
-		//display(matrix, size);
+
+		if (density >= 0.6) {
+			printf("Too many words... generating word_search\n");
+			break;
+		}
 		printf("Enter word: ");
 	}
 	
@@ -106,12 +114,6 @@ void write_ans_sheet(char matrix[MAX][MAX], int size) {
 }
 
 
-int word_len (char word[MAX]) {
-	int i;
-	for (i = 0; word[i] != '\0'; i++);
-	return i;
-}
-
 void fill (char matrix[MAX][MAX], int size) {
 	int i, d;
 	for (i = 0; i < size; i++) {
@@ -147,7 +149,7 @@ int generate_general (char matrix[MAX][MAX], int size, char word[MAX], int x, in
 int generate_north (char matrix[MAX][MAX], int size, char word[MAX], int x, int y) {
 	int i, d, index;
 	// Check path first
-	int length = word_len(word);
+	int length = strlen(word);
 	// return 0 when it exceeds the board
 	if (y - length < 0) {
 		return 0;
@@ -170,7 +172,7 @@ int generate_north (char matrix[MAX][MAX], int size, char word[MAX], int x, int 
 int generate_south (char matrix[MAX][MAX], int size, char word[MAX], int x, int y) {
 	int i, d, index;
 	// Check path first
-	int length = word_len(word);
+	int length = strlen(word);
 	// return 0 when it exceeds the board
 	if (y + length < size) {
 		return 0;
@@ -193,7 +195,7 @@ int generate_south (char matrix[MAX][MAX], int size, char word[MAX], int x, int 
 int generate_east (char matrix[MAX][MAX], int size, char word[MAX], int x, int y) {
 	int i, d, index;
 	// Check path first
-	int length = word_len(word);
+	int length = strlen(word);
 	// return 0 when it exceeds the board
 	if (x + length < size) {
 		return 0;
@@ -216,7 +218,7 @@ int generate_east (char matrix[MAX][MAX], int size, char word[MAX], int x, int y
 int generate_west (char matrix[MAX][MAX], int size, char word[MAX], int x, int y) {
 	int i, d, index;
 	// Check path first
-	int length = word_len(word);
+	int length = strlen(word);
 	// return 0 when it exceeds the board
 	if (x - length >= 0) {
 		return 0;
@@ -239,7 +241,7 @@ int generate_west (char matrix[MAX][MAX], int size, char word[MAX], int x, int y
 int generate_SE (char matrix[MAX][MAX], int size, char word[MAX], int x, int y) {
 	int i, d, index;
 	// Check path first
-	int length = word_len(word);
+	int length = strlen(word);
 	// return 0 when it exceeds the board
 	if (x + length > size || y + length > size) {
 		return 0;

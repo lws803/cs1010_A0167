@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define MAX 50
-#define WORDSIZE 50
+#define MAX 2000
+#define WORDSIZE 2000
 
 // http://tools.atozteacherstuff.com/word-search-maker/wordsearch.php - generate your word search here
 
