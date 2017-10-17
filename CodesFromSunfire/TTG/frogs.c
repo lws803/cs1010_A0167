@@ -1,9 +1,9 @@
 /**
  * CS1010 AY2017/8 Semester 1 Lab4 Ex3
  * frogs.c
- * <Type your program description here>
- * <Type your name here>
- * <Type your discussion group here>
+ * This program creates a game of leap frogs on a bridge.
+ * Tan Tze Guang
+ * C06
  */
 #include <stdio.h>
 
@@ -81,10 +81,12 @@ void printBridge(int size, int bridge[]) {
 	}
 	printf("\n");
 }
+
+//	Determine whether the game can continue.
 //	gamestate 0:	Game can continue
 //	gamestate 1:	Game ends as it has been completed
 //	gamestate 2:	Game ends as there are no more moves left.
-	
+//	Precond: length > 0	
 int checkGameState (int length, int arr[]) {
 	int i, gameState = 1;
 	for (i = 0; i < length-1; i++) {
@@ -113,13 +115,13 @@ int jump(int initial, int length, int arr[]){
 	if (arr[initial] == 0){
 		return 0;
 	}
-	else if(arr[initial]==1){
-		if (arr[initial+1] == 0 && (initial+1)<length-1){
+	else if(arr[initial]==1){		// Consider the frogs that move towards the right.
+		if (arr[initial+1] == 0 && (initial+1)< length){	//Prevent the frogs from jumping off the bridge
 			temp = arr[initial];
 			arr[initial] = arr[initial+1];
 			arr[initial+1] = temp;
 		}
-		else if (arr[initial+2]==0 && (initial+2)< length-1){
+		else if (arr[initial+2]==0 && (initial+2)< length){
 			temp = arr[initial];
 			arr[initial] = arr[initial+2];
 			arr[initial+2] = temp;
@@ -127,13 +129,13 @@ int jump(int initial, int length, int arr[]){
 		else
 			return 0;
 	}
-	else if(arr[initial]==-1 && (initial-1)>0){
-		if (arr[initial-1] == 0){
+	else if(arr[initial]==-1){		//Consider the frogs that move towards the left.
+		if (arr[initial-1] == 0 && (initial-1)>=0){
 			temp = arr[initial];
 			arr[initial] = arr[initial-1];
 			arr[initial-1] = temp;
 		}
-		else if (arr[initial-2]==0 && (initial-2)>0){
+		else if (arr[initial-2]==0 && (initial-2)>=0){
 			temp = arr[initial];
 			arr[initial] = arr[initial-2];
 			arr[initial-2] = temp;
