@@ -144,3 +144,15 @@ int main () {
     printf("i = %d\n", i); // Output: will print 24 
 }
 ---------------------------------------------------------------------------------------------------------------------------
+// String functions 
+// Delim: '-'
+char str2[80] = "ore-wa-o-chin-chin-ga-daisuki-nandayo";
+const s2[2] = '-'
+
+char *token2;
+token2 = strtok(str2, s2);
+while( token2 != NULL ) {
+    printf( "%s\n", token2 );
+    
+    token2 = strtok(NULL, s2); // If we remove this, then it will result in an infinite loop 
+}
