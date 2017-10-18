@@ -33,7 +33,7 @@ void display (char matrix[YMAX][XMAX]) {
 	int i, d;
 	for (i = 0; i < YMAX; i++) {
 		for (d = 0; d < XMAX; d++) {
-			printf("%c ", matrix[i][d]);
+			printf("%c", matrix[i][d]);
 		}
 		printf("\n");
 	}
@@ -56,6 +56,7 @@ void plotGraph (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 		min = polynomial(rangeX_1);
 	}
 
+	// TODO: Fix the int Y position determinant
 	for (i = rangeX_1, d = 0; i <= rangeX_2; i += increment, d++) {
 		int Y = (YMAX-1) - (fabs(polynomial(i) - min)/Y_range)*(YMAX-1); 
 		matrix[Y][d] = 'x';
