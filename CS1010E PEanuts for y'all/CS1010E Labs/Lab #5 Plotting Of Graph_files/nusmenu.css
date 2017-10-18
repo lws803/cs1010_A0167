@@ -1,0 +1,46 @@
+/* Main Navigation */
+
+#nusmenu { height: 30px; font-family: arial, sans-serif;  margin: 0 1px; paddingleft: 0;
+background: url(/nus/localnav_gc.png) ; /*optional left round corner*/
+}
+#nusmenu_l { height: 30px; background: url(/nus/localnav_gl.png) left no-repeat; }
+#nusmenu_r { height: 30px; background: url(/nus/localnav_gr.png) right no-repeat; }
+#nusmenu ul {
+margin: 0;
+padding: 0 5px;
+float: left;
+height: 30px;
+font: normal 11px Arial;
+list-style-type: none;
+position: relative;
+}
+#nusmenu ul li { display: inline; float: left; margin: 0; list-style-type: none; list-style-position: inside; position: relative; }
+#nusmenu a, #nusmenu a:visited {display:block;font-size:11px;text-decoration:none; margin: 0; padding: 0 7px; line-height:29px; font-weight:bold; text-transform:uppercase; text-align:center; color:#666; }
+#nusmenu ul ul a, #nusmenu ul ul a:visited {color:#fff; border-bottom:1px solid #ccc; border-width:1px 0 1px 1px; font-weight:normal; text-transform:none; text-align:left;}
+#nusmenu ul ul a.nodrop, #nusmenu ul ul a.nodrop:visited { background: #e4e4e4 url(../images/grey-only.gif) no-repeat 160px center;}
+#nusmenu ul ul a.drop, #nusmenu ul ul a.drop:visited { background: #e4e4e4 url(../images/grey-arrow.gif) no-repeat 160px center;}
+#nusmenu ul ul a.drop:hover { background: #fff url(../images/yellow-arrow.gif) no-repeat 160px center; }
+#nusmenu ul ul a.nodrop:hover { background: #fff url(../images/white-only.gif) no-repeat 160px center; }
+#nusmenu ul ul a:hover > a.drop { background: #fff url(../images/yellow-arrow.gif) no-repeat 160px center; }
+#nusmenu ul ul a:hover > a.nodrop { background:#fff url(../images/white-only.gif) no-repeat 160px center; }
+#nusmenu ul ul ul a, #nusmenu ul ul ul a:visited { background:#fff; width:145px; }
+#nusmenu ul ul ul a:hover { background:#fff; }
+#nusmenu ul ul { visibility: hidden; position: absolute; height: 0; top: 30px; left: 0; width:160px; border-top: 1px solid #ccc;}
+/* another hack for IE5.5 */
+#nusmenu ul ul {top:29px; t\op:30px;}
+#nusmenu ul ul ul{left:170px; top:-1px; width:160px;}
+#nusmenu ul ul ul.left {left:-160px;}
+#nusmenu table {position:absolute; top:0; left:0; border-collapse:collapse;;}
+#nusmenu ul ul a, #nusmenu ul ul a:visited {background:#e4e4e4; color:#000; height:auto; line-height:1em; padding:5px 10px; 
+width:150px;border-width:0 1px 1px 1px;}
+/* yet another hack for IE5.5 */
+#nusmenu ul ul a, * html #nusmenu ul ul a:visited {width:150px;w\idth:150px;}
+#nusmenu a:hover, #nusmenu ul ul a:hover{color:#666; background:#fff;}
+#nusmenu :hover > a, #nusmenu ul ul :hover > a {color:#666; background:#fff;}
+#nusmenu :hover > a {color:#666; background-image:url(/nus/localnav_gh.png);  background-repeat:repeat-x;}
+#nusmenu ul ul :hover > a {color:#666; background:#fff;}
+
+#nusmenu ul li:hover ul,
+#nusmenu ul a:hover ul{visibility:visible; }
+#nusmenu ul :hover ul ul{visibility:hidden;}
+#nusmenu ul :hover ul :hover ul{ visibility:visible;}

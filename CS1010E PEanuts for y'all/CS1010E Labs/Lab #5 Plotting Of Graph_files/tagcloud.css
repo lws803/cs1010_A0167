@@ -1,0 +1,6 @@
+#tagCloud { background-color:#e7efef; text-align:left; padding:5px; overflow:auto; font-size:70%; font-family:arial; border:1px solid #CDDDDD; }
+#tagCloud h2 { color:#666666; font-size:2em; margin:0 0 10px 0; }
+#tagValues { margin:0; padding:0; }
+#tagValues li { list-style-type:none; float:left; margin:0 10px; height:35px; }
+#tagValues li a { text-decoration:none; color:#666666; }
+#tagValues li a:hover { text-decoration:underline; }

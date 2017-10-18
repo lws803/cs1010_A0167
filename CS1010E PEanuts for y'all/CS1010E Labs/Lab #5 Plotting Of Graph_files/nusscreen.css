@@ -1,0 +1,141 @@
+/* Screen style */
+.nusbase { font-size: 68.75%; padding: 0; }
+
+/* Image replacement */
+.nuslogodiv { width: 334px; height: 68px; position: absolute; top: 13px; left: 20px; }
+.nuslogo { display: block; left: -1px; position: absolute; top: 1px; width:334px; }
+.ir { font-size: 1em; margin: 0; overflow: hidden; position: relative; }
+.ir span { background-repeat: no-repeat; display: block; height: 100%; left: -1px;	position: absolute; top: 1px; width: 100%; z-index: 1; }
+.ir a { cursor: pointer; display: block; height: 100%; width: 100%; }
+a.ir span { cursor: pointer; }
+.ir2 { overflow: hidden; text-indent: -2000px; }
+
+/* Auto clearing floats */
+#nav .flyout .inner:after, .audience-panel .top:after, .home-cols:after, #nusfooter .inner:after, #bottom:after, .sortable-box .inner:after, .customize-box .welcome:after, .customize-box .inner:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
+
+/* Wrapper */
+#wrapper { width: 951px; margin: 0 auto; }
+
+/* Header */
+#nusheader { height: 80px; position: relative;z-index:9999; }
+
+#searchform form {margin: 0; /* for IE */ font-size: 0.91em; margin-top: 16px; float: right;}
+#searchform2 form {margin: 0; /* for IE */ font-size: 0.91em; position: absolute; top: 56px; left: 630px;}
+#searchform .equal {vertical-align: middle; /* for IE */}
+#searchform #txt {height: 14px;	padding-left: 5px;	background: white;	color: #808080; /* grey */	border: 1px solid #cccccc; /* brownish */}
+#searchform #txt:focus { /* not working in IE6 */ color: black;	}
+#searchform #butn {	background: none; }
+
+
+/* Emergency Message */
+ul.emergency {background:url("../images/emergency.gif") no-repeat; height: 36px;}
+ul.emergency li { background:url("../images/emergency-text.gif") no-repeat 25px 8px; padding: 5px 0 0 33px; color:#FF0000;}
+ul.emergency li a {color:#FF0000;}
+
+/* Content */
+#content { clear: both; }
+
+/* Audience Nav */
+#audience-nav { clear: both; height: 31px; margin: 0; width: 940px; padding-left: 5px; }
+.audience-nav-static { margin-bottom: 10px !important; }
+#audience-nav li { float: left; }
+#audience-nav a { background: #999; color: #fff; display: block; height: 35px; line-height: 46px; margin: 0; overflow: hidden; position: relative; text-align: center; text-decoration: none; text-transform: uppercase; width: 150px; }
+#audience-nav a span { background-repeat: no-repeat; display: block; height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: 1; cursor: pointer; }
+#audience-nav a:hover { background-color: #999; color: #fff; }
+#audience-nav a#a-nav01, #audience-nav a#a-nav02, #audience-nav a#a-nav03, #audience-nav a#a-nav04, #audience-nav a#a-nav05  { width: 183px; margin-right: 5px}
+#audience-nav a#a-nav01 span { background-image: url("../images/01-1.gif"); }
+#audience-nav a#a-nav02 span { background-image: url("../images/02-1.gif"); }
+#audience-nav a#a-nav03 span { background-image: url("../images/03-1.gif"); }
+#audience-nav a#a-nav04 span { background-image: url("../images/04-1.gif"); }
+#audience-nav a#a-nav05 span { background-image: url("../images/05-1.gif"); }
+
+/* Home columns */
+.home-cols { clear: both; margin: 5px 0 10px 1px; }
+.home-cols .spotlight, .home-cols .middle2 { float: left; width: 180px; margin: 10px 2px 0 2px; }
+.home-cols .middle1 { float: left; width: 260px; margin: 10px 2px 0 2px;}
+.home-cols .right { float: right; width: 290px; margin: 10px 2px 0 2px;}
+
+/* Footer */
+#nusfooter { background: url("/nus/footerbarmc.png"); color: #636363; font-size: 0.92em; clear: both; }
+#nusfooter_ml { background: transparent url("/nus/footerbarml.png") repeat-y; }
+#nusfooter_mr { background: transparent url("/nus/footerbarmr.png") right repeat-y; }
+#nusfooter_tc { background: transparent url("/nus/footerbartc.png") top repeat-x; }
+#nusfooter_tl { background: transparent url("/nus/footerbartl.png") left top no-repeat; }
+#nusfooter_tr { background: transparent url("/nus/footerbartr.png") right top no-repeat; }
+#nusfooter_bc { background: transparent url("/nus/footerbarbc.png") bottom repeat-x; }
+#nusfooter_bl { background: transparent url("/nus/footerbarbl.png") left bottom no-repeat; }
+#nusfooter_br { background: url("/nus/footerbarbr.png") right bottom no-repeat; }
+#nusfooter .inner { padding: 10px 0 12px; }
+#nusfooter p { margin: 0; }
+#nusfooter a { color: #3F3F3F; text-decoration: none; }
+#nusfooter a:hover { color: #0c0c0c; text-decoration: none; }
+#nusfooter .left { float: left; height: 100%; padding-left: 15px; width: 45%; }
+#nusfooter .left li { float: left; padding-left: 8px; margin-left: 6px; background: url("../images/sep2.gif") left center no-repeat; }
+#nusfooter .left li.first { margin: 0; padding: 0; background: none; }
+#nusfooter .left .tel { padding-left: 16px; background: url("../images/tel.gif") 0 20% no-repeat; }
+#nusfooter .left .email { padding-left: 16px; background: url("../images/email.gif") 0 40% no-repeat; }
+#nusfooter .right { float: right; padding-right: 8px; width: 50%; text-align: right; color: #616161; }
+#nusfooter .right a { color: #464646; }
+#nusfooter .right a:hover { color: #131313; }
+#nusfooter .right .copy { color: #464646; }
+#nusfooter .right .copy a { padding:1px 5px 3px 5px; }
+
+/* preference popups */
+.customize-box div.pop {position:relative; left:-22px; top:-128px; z-index:9999}
+.customize-box div.pop div{ position: absolute; left: -1000em; text-align: left; width: 288px; padding: 10px; z-index: 9999; background: #fff; color: #666; font-size: 1em; text-transform: none; border: 1px solid #f0f0f0; }
+.customize-box div.pop div.active{ position:absolute; left: 0; text-align: left; z-index: 9999; top:0; width:288px; }
+.customize-box div.pop div p{ margin: 0 0 5px;}
+.customize-box div.pop div fieldset{ border-bottom: 1px solid #eee; margin: 0 0 5px; }
+.customize-box div.pop div fieldset label{ margin: 0 5px 0 0;}
+.customize-box div.pop div fieldset input{vertical-align: middle; margin: 0 2px 0 0; padding: 0;}
+.customize-box div.pop div fieldset.search { margin: 0 0 10px;}
+
+
+/*main top header blue menu */
+
+#nuspointermenu { margin: 0; padding: 0; height: 35px; }
+
+#nuspointermenu ul {
+margin: 0;
+margin-left: 15px; /*menu offset from left edge of window*/
+float:right;
+position: relative; 
+padding-left: 8px;
+font: normal 11px Arial;
+text-transform: uppercase;
+background: #0e3a82 url(/nus/leftround2.gif) bottom left no-repeat; /*optional left round corner*/
+}
+
+* html #nuspointermenu ul { /*IE6 only rule. Decrease ul left margin and add 1em bottom margin*/
+  margin-bottom: 1em;
+  margin-left: 7px; /*menu offset from left edge of window in IE*/
+}
+
+#nuspointermenu ul li { display: inline; }
+#nuspointermenu ul li a { float: left; color: white; padding: 7px 9px 7px 5px; text-decoration: none; }
+#nuspointermenu ul li a:visited { color: white; }
+#nuspointermenu ul li a:hover, #nuspointermenu ul li a#selected { color: lightyellow; text-decoration:underline; }
+#nuspointermenu ul li a#rightcorner { padding-right: 0; padding-left: 2px; background:url(/nus/rightround2.gif) bottom right no-repeat; /*optional right round corner*/ }
+
+#nustitle {
+  margin: 2px 1px;
+  height: 60px; font-family: arial, sans-serif;  padding-left: 0;
+  background: url(/nus/nustitle60_c.png); 
+}
+#nustitle_l { height: 60px; background: url(/nus/nustitle60_l.png) no-repeat left; }
+#nustitle_r { height: 60px; background: url(/nus/nustitle60_r.png) no-repeat right; }
+
+#site-name {
+font-size: 22px;
+font-family: Georgia;
+padding: 13px 25px;
+margin: 0;
+text-align: left;
+color: white;
+line-height: 1.5em;
+}
+#site-name a:link, #site-name a:visited {
+font-weight: normal;
+color: white;
+text-decoration: none;
+}
