@@ -1,0 +1,50 @@
+/* Required: var nocache is a random number to add to request. This value solve an Internet Explorer cache issue */
+var nocache = 0;
+
+function GetXmlHttpObject() {
+	var xmlHttp = null;
+	try { // Firefox, Opera 8.0+, Safari
+		xmlHttp = new XMLHttpRequest();
+	}
+	catch (e) { // Internet Explorer
+		try {
+		    xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+	    }
+  		catch (e) {
+		    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+  	}
+	return xmlHttp;
+}
+
+function showCategoryTree(type) {
+	xmlHttp = GetXmlHttpObject();
+	if (xmlHttp == null) {
+		alert ("Your browser does not support AJAX!");
+		return;
+	}
+	xmlHttp.onreadystatechange = function() {
+		if (xmlHttp.readyState == 4) {
+			document.getElementById("tree").innerHTML = xmlHttp.responseText;
+		}
+    }
+	
+	xmlHttp.open('get', 'categories_functions.php?action=tree&type=' + type, true);
+  	xmlHttp.send(null);
+}
+
+function buildCategoryTree() {
+	xmlHttp = GetXmlHttpObject();
+	if (xmlHttp == null) {
+		alert ("Your browser does not support AJAX!");
+		return;
+	}
+	xmlHttp.onreadystatechange = function() {
+		if (xmlHttp.readyState == 4) {
+			document.getElementById("tree").innerHTML = xmlHttp.responseText;
+		}
+	}
+	
+	xmlHttp.open("get", "categories_functions.php?action=tree", true);
+	xmlHttp.send(null);
+}
