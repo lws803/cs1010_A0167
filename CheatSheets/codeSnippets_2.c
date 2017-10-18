@@ -404,3 +404,17 @@ int spiral (int matrix[MAX][MAX], int size, int sequence) {
 
 	return keep_spiral;
 }
+
+// Sum from any index in an array (in the shape of a circle)
+
+int sum_circle (int arr[MAX_SLICES], int size, int index, int numSums) {
+	int i, sum = 0, count = 0;
+	for (i = index; count < numSums; i++) {
+		sum += arr[i];
+		count++;
+		if (i == size - 1) {
+			i = 0;
+		}
+	}
+	return sum;
+}
