@@ -53,12 +53,12 @@ void plotGraph (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 	plant_Y_axis(matrix, rangeX_1, rangeX_2);
 	plant_X_axis(matrix, rangeX_1, rangeX_2);
 	printf("Min: %lf Max: %lf\n", min, max);
-	// TODO: Add the axis 
 
 
-	for (i = rangeX_1, d = 0; i < rangeX_2; i += increment, d++) {
+	for (i = rangeX_1, d = 0; d < XMAX; i += increment, d++) {
 		// Ratio 
 		int Y = ((polynomial(i)-max)/(min-max))*(YMAX-1);
+		printf("%d, %d\n", d, Y);
 		matrix[Y][d] = 'x';
 	}
 
@@ -76,7 +76,7 @@ double findMin (double rangeX_1, double rangeX_2) {
 	min = polynomial(rangeX_1);
 	double increment = fabs(rangeX_2 - rangeX_1)/XMAX;
 
-	for (i = rangeX_1; i < rangeX_2; i += increment) {
+	for (i = rangeX_1; i <= rangeX_2; i += increment) {
 		if (polynomial(i) < min) {
 			min = polynomial(i);
 		}
@@ -88,7 +88,9 @@ double findMax (double rangeX_1, double rangeX_2) {
 	double i, max;
 	max = polynomial(rangeX_1);
 	double increment = fabs(rangeX_2 - rangeX_1)/XMAX;
-	for (i = rangeX_1; i < rangeX_2; i += increment) {
+
+
+	for (i = rangeX_1; i <= rangeX_2; i += increment) {
 		if (polynomial(i) > max) {
 			max = polynomial(i);
 		}
@@ -101,7 +103,7 @@ void plant_Y_axis (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 	double increment = fabs(rangeX_2 - rangeX_1)/XMAX;
 	double i, closestTo = rangeX_1;
 	if (rangeX_1 <= 0 && rangeX_2 >= 0) {
-		for (i = rangeX_1, d = 0; i < rangeX_2; i += increment, d++) {
+		for (i = rangeX_1, d = 0; d < XMAX; i += increment, d++) {
 			if (fabs(i) < fabs(closestTo)) {
 				closestTo = i;
 				index = d;
@@ -121,7 +123,7 @@ void plant_X_axis (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 	double i, closestTo = ((polynomial(rangeX_1)-max)/(min-max))*(YMAX-1);
 
 	if (findMin(rangeX_1, rangeX_2) <= 0 && findMax(rangeX_1, rangeX_2) >= 0) {
-		for (i = rangeX_1; i < rangeX_2; i += increment) {
+		for (i = rangeX_1; i <= rangeX_2; i += increment) {
 			if (fabs(polynomial(i)) < fabs(closestTo)) {
 				int Y = ((polynomial(i)-max)/(min-max))*(YMAX-1);
 				closestTo = polynomial(i);
