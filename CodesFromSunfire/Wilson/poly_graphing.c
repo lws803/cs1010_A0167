@@ -59,7 +59,7 @@ void plotGraph (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 	for (i = rangeX_1, d = 0; i < rangeX_2; i += increment, d++) {
 		// Ratio 
 		int Y = ((polynomial(i)-max)/(min-max))*(YMAX-1);
-		matrix[(YMAX-1) - Y][d] = 'x';
+		matrix[Y][d] = 'x';
 	}
 
 
@@ -67,6 +67,7 @@ void plotGraph (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 
 double polynomial (double x) {
 	double y = x*x*x + 2*x*x +5.0;
+	//double y = x*x - 5;
 	return y;
 }
 
@@ -118,12 +119,13 @@ void plant_X_axis (char matrix[YMAX][XMAX], double rangeX_1, double rangeX_2) {
 	double min = findMin(rangeX_1, rangeX_2);
 	double increment = fabs(rangeX_2 - rangeX_1)/XMAX;
 	double i, closestTo = ((polynomial(rangeX_1)-max)/(min-max))*(YMAX-1);
+
 	if (findMin(rangeX_1, rangeX_2) <= 0 && findMax(rangeX_1, rangeX_2) >= 0) {
 		for (i = rangeX_1; i < rangeX_2; i += increment) {
 			if (fabs(polynomial(i)) < fabs(closestTo)) {
 				int Y = ((polynomial(i)-max)/(min-max))*(YMAX-1);
 				closestTo = polynomial(i);
-				index = (YMAX -1) - Y;
+				index = Y;
 			}
 		}
 		for (d = 0; d < XMAX; d++) {
