@@ -177,7 +177,7 @@ int generate_south (char matrix[MAX][MAX], int size, char word[MAX], int x, int 
 	// Check path first
 	int length = strlen(word);
 	// return 0 when it exceeds the board
-	if (y + length > size) {
+	if (y + length > size - 1) {
 		return 0;
 	}
 	// Check for overlaps 
@@ -200,7 +200,7 @@ int generate_east (char matrix[MAX][MAX], int size, char word[MAX], int x, int y
 	// Check path first
 	int length = strlen(word);
 	// return 0 when it exceeds the board
-	if (x + length > size) {
+	if (x + length > size - 1) {
 		return 0;
 	}
 	// Check for overlaps 
@@ -246,7 +246,7 @@ int generate_SE (char matrix[MAX][MAX], int size, char word[MAX], int x, int y) 
 	// Check path first
 	int length = strlen(word);
 	// return 0 when it exceeds the board
-	if (x + length > size || y + length > size) {
+	if (x + length > size - 1|| y + length > size - 1) {
 		return 0;
 	}
 	// Check for overlaps 
