@@ -22,7 +22,7 @@ int main () {
 	char matrix[MAX][MAX];
 	srand(time(NULL));
 
-	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%8+1;
+	int size, x = arc4random_uniform(size-1) + 0, y = arc4random_uniform(size-1) + 0, Case = arc4random_uniform(8)+1;
 
 	printf("Enter size of word search: ");
 	scanf("%d", &size);
@@ -52,9 +52,10 @@ int main () {
 		printf("Density: %f\n", density);
 		while (!generate_general(matrix, size, word, x, y, Case) && density < 0.6) {
 			// Determines the number of cases that can be randomly generated 
-			Case = rand()%8+1;
-			x = rand()%size-1 + 0;
-			y = rand()%size-1 + 0;
+			//Case = rand()%8+1;
+			Case = arc4random_uniform(8)+1;
+			x = arc4random_uniform(size-1) + 0;
+			y = arc4random_uniform(size-1) + 0;
 		}
 
 		if (density >= 0.6) {
