@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <unistd.h>
 
 #define MAX 1000
 
@@ -23,7 +22,7 @@ int main () {
 	char matrix[MAX][MAX];
 	srand(time(NULL));
 
-	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%10+1;
+	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%4+1;
 
 	printf("Enter size of word search: ");
 	scanf("%d", &size);
@@ -58,7 +57,7 @@ int main () {
 
 		while (!generate_general(matrix, size, word, x, y, Case) && density < 0.6) {
 			// Determines the number of cases that can be randomly generated 
-			Case = rand()%10+1;
+			Case = rand()%4+1;
 			x = (rand()%(size-1));
 			y = (rand()%(size-1));
 		}
@@ -135,17 +134,15 @@ void fill (char matrix[MAX][MAX], int size) {
 int generate_general (char matrix[MAX][MAX], int size, char word[MAX], int x, int y, int Case) {
 	int boolean = 0;
 	switch(Case) {
-		case 1: case 2: case 3: case 4:
+		case 1: 
 		boolean = generate_south(matrix, size, word, x, y);
 		break;
-		case 5: case 6: case 7: 
+		case 2:  
 		boolean = generate_east(matrix, size, word, x, y);
 		break;
-		case 8:
+		case 3:
 		boolean = generate_SE(matrix, size, word, x, y);
 		break;
-		default:
-		boolean = generate_east(matrix, size, word, x, y);
 	}
 
 	return boolean;
@@ -180,7 +177,7 @@ int generate_south (char matrix[MAX][MAX], int size, char word[MAX], int x, int 
 	// Check path first
 	int length = strlen(word);
 	// return 0 when it exceeds the board
-	if (y + length < size) {
+	if (y + length > size) {
 		return 0;
 	}
 	// Check for overlaps 
@@ -203,7 +200,7 @@ int generate_east (char matrix[MAX][MAX], int size, char word[MAX], int x, int y
 	// Check path first
 	int length = strlen(word);
 	// return 0 when it exceeds the board
-	if (x + length < size) {
+	if (x + length > size) {
 		return 0;
 	}
 	// Check for overlaps 
@@ -226,7 +223,7 @@ int generate_west (char matrix[MAX][MAX], int size, char word[MAX], int x, int y
 	// Check path first
 	int length = strlen(word);
 	// return 0 when it exceeds the board
-	if (x - length >= 0) {
+	if (x - length < 0) {
 		return 0;
 	}
 	// Check for overlaps 
