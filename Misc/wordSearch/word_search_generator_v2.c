@@ -17,16 +17,21 @@ int generate_general (char [MAX][MAX], int, char [MAX], int, int, int);
 void fill (char [MAX][MAX], int);
 void write_to_file(char [MAX][MAX], int);
 void write_ans_sheet(char [MAX][MAX], int);
-
+void wordInput (char [MAX][MAX], int);
+int remove_word (char [MAX][MAX], int , int );
+int generate_general_no_diag (char [MAX][MAX], int , char [MAX], int , int , int);
 int main () {
 	char word[MAX]; 
-	char matrix[MAX][MAX];
-	srand(time(NULL));
-
-	int size, x = rand()%(size-1), y = rand()%(size-1), Case = rand()%10+1;
+	char matrix[MAX][MAX], words[MAX][MAX];
+	int size, x = arc4random()%(size-1), y = arc4random()%(size-1), Case = arc4random()%10+1, num_words, total_sum = 0;
 
 	printf("Enter size of word search: ");
 	scanf("%d", &size);
+
+	printf("Enter number of words: ");
+	scanf("%d", &num_words);
+	wordInput(words, num_words);
+
 
 	// Init the word search
 	int i, d;
@@ -36,38 +41,44 @@ int main () {
 		}
 	}
 
-	// Generate the word search	
-	// Keeps the prog running as long as user does not press ctrl-D
-	// Precond: Only key in upper case letters if you want the answers to be harder to find :) 
-	printf("Enter word: ");
-	int totalsum = 0;
-	while(scanf("%s", word) != EOF) {
-		int length = strlen(word);
-		if (length > size || length < 3) {
-			printf("Word exceeding board or fewer than 3\n");
-			printf("Enter word: ");
-			continue;
-		}
-		for (i = 0; word[i] != '\0'; i++) {
-			word[i] = toupper(word[i]);
+	// Calculate density and convert to upper case 
+	for (i = 0; i < num_words; i++) {
+		for (d = 0; words[i][d] != '\0'; d++) {
+			words[i][d] = toupper(words[i][d]);
 		}
 
-		totalsum += length;
-		float density = (float)totalsum/(size*size);
-		printf("Density: %f\n", density);
+		total_sum += strlen(words[i]);
+	}
 
-		while (!generate_general(matrix, size, word, x, y, Case) && density < 0.6) {
-			// Determines the number of cases that can be randomly generated 
-			Case = rand()%10+1;
-			x = (rand()%(size-1));
-			y = (rand()%(size-1));
-		}
+	printf("Density: %f\n", (float)total_sum/(size*size));
 
-		if (density >= 0.6) {
-			printf("Too many words... generating word_search\n");
-			break;
+
+
+	for (i = 0; i < num_words; i++) {
+		Case = arc4random()%9+1;
+		x = (arc4random()%(size-1));
+		y = (arc4random()%(size-1));
+		if (!generate_general_no_diag(matrix, size, words[i], x, y, Case)) {
+			int count = 0;
+			while(count < 5 && !generate_general_no_diag(matrix, size, words[i], x, y, Case)) {
+				count++;
+			}
+		}else {
+			num_words = remove_word(words, i, num_words);
+		} 
+	}
+
+	Case = arc4random()%10+1;
+	x = (arc4random()%(size-1));
+	y = (arc4random()%(size-1));
+
+	for (i = 0; i < num_words; i++) {
+		// Potential infinite loop
+		while(!generate_general(matrix, size, words[i], x, y, Case)) {
+			Case = arc4random()%10+1;
+			x = (arc4random()%(size-1));
+			y = (arc4random()%(size-1));
 		}
-		printf("Enter word: ");
 	}
 	
 	printf("\n-------VISIBLE ANSWERS-------\n");
@@ -81,7 +92,7 @@ int main () {
 
 	// Write to file 
 	write_to_file(matrix, size);
-
+	
 	return 0;
 }
 
@@ -105,6 +116,25 @@ void write_to_file(char matrix[MAX][MAX], int size) {
 		fprintf(f, "\n");
 	}
 	fclose(f);
+}
+
+void wordInput (char words[MAX][MAX], int size) {
+	int i, d;
+	for (i = 0; i < size; i++) {
+		scanf("%s", words[i]);
+	}
+}
+
+int remove_word (char words[MAX][MAX], int atIndex, int size) {
+    int i, d;
+    for (i = atIndex; i < size; i++) {
+    	for (d = 0; words[i][d] != '\0'; d++) {
+    		words[i][d] = words[i+1][d];
+    	}
+    	words[i][d+1] = '\0';
+    }
+    size--;
+    return size;
 }
 
 void write_ans_sheet(char matrix[MAX][MAX], int size) {
@@ -143,6 +173,22 @@ int generate_general (char matrix[MAX][MAX], int size, char word[MAX], int x, in
 		break;
 		case 8:
 		boolean = generate_SE(matrix, size, word, x, y);
+		break;
+		default:
+		boolean = generate_east(matrix, size, word, x, y);
+	}
+
+	return boolean;
+}
+
+int generate_general_no_diag (char matrix[MAX][MAX], int size, char word[MAX], int x, int y, int Case) {
+	int boolean = 0;
+	switch(Case) {
+		case 1: case 2: case 3: case 4:
+		boolean = generate_south(matrix, size, word, x, y);
+		break;
+		case 5: case 6: case 7: 
+		boolean = generate_east(matrix, size, word, x, y);
 		break;
 		default:
 		boolean = generate_east(matrix, size, word, x, y);
