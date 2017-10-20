@@ -57,7 +57,7 @@ void transpose_90 (char matrix[size][size]) {
 	}
 }
 
-
+// Display array
 void display (char matrix[size][size]) {
 	int i, d;
 	for (i = 0; i < size; i++) {
@@ -66,4 +66,49 @@ void display (char matrix[size][size]) {
 		}
 		printf("\n");
 	}
+}
+
+
+// Flips an array diagonally (South east)
+void flipD(int image[][MAX_SIZE], int size) {
+	int i, d;
+	for (i = 0; i < size; i++) {
+		for (d = 0; d < size; d++) {
+			// Ensures that only elements past the diagonal line is flipped
+			if (d > i) {
+				int t = image[i][d];
+				image[i][d] = image[d][i];
+				image[d][i] = t;
+			}
+			
+		}
+	}
+}
+
+// Flip an array wrt to a horizontal line from the centre. 
+void flipH(int image[][MAX_SIZE], int size) {
+	int i, d;
+	if (size%2 != 0) {
+		// even number of height
+		for (i = 0; i < size/2; i++) {
+			for (d = 0; d < size; d++) {
+				// Swapping
+				int t = image[i][d];
+				image[i][d] = image[size - i - 1][d];
+				image[size - i - 1][d] = t;
+			}
+		}
+
+	}else {
+		// odd number of height
+		for (i = 0; i <= size/2; i++) {
+			for (d = 0; d < size; d++) {
+				// swapping
+				int t = image[i][d];
+				image[i][d] = image[size - i - 1][d];
+				image[size - i - 1][d] = t;
+			}
+		}
+	}
+
 }
