@@ -418,3 +418,24 @@ int sum_circle (int arr[MAX_SLICES], int size, int index, int numSums) {
 	}
 	return sum;
 }
+
+// Word Counting 
+int word_count(char str[]) {
+	int i, count = 0, word_count = 0;
+	for (i = 0; str[i] != '\0'; i++) {
+		if (isalpha(str[i])) {
+			// Detection of normal words
+			count = 1;
+		}
+		if ((count == 1 && str[i] == ' ')){
+			// Last word can be tricky to recognise.
+			// Detection of white spaces and any other weird characters or when the sentence ends. 
+			word_count++;
+			count = 0;
+		}
+	}
+	if (count == 1) {
+		word_count++;
+	}
+	return word_count;
+}
