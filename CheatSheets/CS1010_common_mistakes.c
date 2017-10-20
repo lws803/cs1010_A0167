@@ -161,3 +161,16 @@ while( token2 != NULL ) {
 char str[20] = "Hello world";
 
 printf("%lu\n", strlen(str)); // Outputs 11, number of letters including whitespace 
+i
+---------------------------------------------------------------------------------------------------------------------------
+char str[1000];
+
+for (int i = 0; i < 3; i++) {
+    str[i] = 'x';
+}
+// Output will print xxx&**&(^%^$%#)... this is because when we use for loops to append characters, it will not append '/0' for you. 
+// Unlike 
+scanf("%s", str);
+// or 
+char str2[10] = "Hello_world";
+
