@@ -1,17 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX 20
+#define UNIQUE 3
 /** 
 Given a string, find the longest substring that contains only two unique characters. For example, given "ghjabcbbbbcccbdddadacb", 
 the longest substring that contains 2 unique character is "bcbbbbcccb".
 "teest"
 */
 
-void insert (char, char [2]);
-int contains (char, char[2]);
+void insert (char, char [UNIQUE]);
+int contains (char, char[UNIQUE]);
 
 int main () {
-	char str[MAX], check[2];
+	char str[MAX], check[UNIQUE];
 	printf("Enter string: ");
 	scanf("%s", str);
 
@@ -41,9 +42,9 @@ int main () {
 }
 
 
-int contains (char c, char check[2]) {
+int contains (char c, char check[UNIQUE]) {
 	int i, count = 0;
-	for (i = 0; i < 2; i++) {
+	for (i = 0; i < UNIQUE; i++) {
 		if (check[i] == c) {
 			return 1;
 		}
@@ -51,9 +52,9 @@ int contains (char c, char check[2]) {
 	return 0;
 }
 
-void insert (char c, char check[2]) {
+void insert (char c, char check[UNIQUE]) {
     int i;
-    for (i = 2-1; i >= 0; i--) {
+    for (i = UNIQUE-1; i >= 0; i--) {
         check[i+1] = check[i];
     }
     // Insert at zero
