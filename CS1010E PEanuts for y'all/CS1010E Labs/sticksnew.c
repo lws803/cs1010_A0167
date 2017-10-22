@@ -17,7 +17,7 @@ int main(void) {
 
 	k = n / m ;
 
-	if ( n%4 != 1) {
+	if ( n%4 != 1 && m != n - 2) {
 
 		printf("I start first\n\n") ;
 
@@ -59,7 +59,7 @@ int main(void) {
 		printf(" %d stick(s) left\n\n" , n ) ;
 
 		if ( n == 1 ) {
-			printf("YOU WIN (by making such a shit game)\n") ;
+			printf("YOU WIN\n") ;
 			break ;
 		}
 
