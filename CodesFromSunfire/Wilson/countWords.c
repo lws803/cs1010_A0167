@@ -1,7 +1,7 @@
 // countWords.c
 #include <stdio.h>
 #include <ctype.h>
-#define LENGTH 50
+#define LENGTH 1000
 
 int word_count(char []);
 
