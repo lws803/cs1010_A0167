@@ -49,6 +49,7 @@ int scan_list(int arr[]) {
 //   		ans[2] = start position of the solution subsequence
 //   Precond: arr[] not empty, size > 0
 void sum_subsequence(int arr[], int size, int ans[]) {
+	int firstRun = 1;				//Used to assign the ans value to something that we can compare with. Not undefined.
 	int sum;
 	int i,j,q;
 	
@@ -56,14 +57,20 @@ void sum_subsequence(int arr[], int size, int ans[]) {
 		for(j=0;j<i;j++){			//loop through the array for the new starting position
 			sum=0;
 			for (q=j;q<size;q+=i){
-				if (q < size){//loop through to get sum
+				if (q < size){		//loop through to get sum
 					sum = sum + arr[q];
 				}
 			}
-			if (sum > ans[0]){
+			if (sum > ans[0] && !firstRun){
 				ans[0] = sum;
 				ans[1] = i;
 				ans[2] = j;
+			}
+			else if (firstRun){
+				ans[0] = sum;
+				ans[1] = i;
+				ans[2] = j;
+				firstRun = 0;
 			}
 		}
 	}
