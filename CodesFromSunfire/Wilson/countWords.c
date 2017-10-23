@@ -1,7 +1,7 @@
 // countWords.c
 #include <stdio.h>
 #include <ctype.h>
-#define LENGTH 50
+#define LENGTH 1000
 
 int word_count(char []);
 
@@ -24,11 +24,19 @@ int word_count(char str[]) {
 		if (isalpha(str[i])) {
 			// Detection of normal words
 			count = 1;
-		}else if ((count == 1 && str[i] == ' ') || (count == 1 && str[i+1] == '\0')){
+		}
+		if ((count == 1 && str[i] == ' ')){
+			// Last word can be tricky to recognise.
 			// Detection of white spaces and any other weird characters or when the sentence ends. 
 			word_count++;
 			count = 0;
 		}
 	}
+
+	if (count == 1) {
+		word_count++;
+	}
+
+
 	return word_count;
 }
