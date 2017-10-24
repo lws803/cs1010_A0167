@@ -161,7 +161,7 @@ while( token2 != NULL ) {
 char str[20] = "Hello world";
 
 printf("%lu\n", strlen(str)); // Outputs 11, number of letters including whitespace 
-i
+
 ---------------------------------------------------------------------------------------------------------------------------
 char str[1000];
 
@@ -173,6 +173,11 @@ for (int i = 0; i < 3; i++) {
 scanf("%s", str);
 // or 
 char str2[10] = "Hello_world";
+
+// Init a string: 
+char str2[MAX_LENGTH+1]; // use +1 add the back to account for the NULL character
+
+fgets (str2, MAX_LENGTH, stdin); // Then we can use MAX_LENGTH
 
 ---------------------------------------------------------------------------------------------------------------------------
 // strcpy cant be used with pointer addresses 
