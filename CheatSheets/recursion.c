@@ -76,6 +76,12 @@ void mystery2 (int n) {
 }
 
 
-// Can create a recursive function header to start off the recursion streak 
+// Can create a recursive function header to start off the recursion streak
 
-
+// TOH 
+/* 
+if (n>0):
+	move n – 1 disks from the source peg to the temp peg using the dest peg
+	move disk n from the source peg to the dest peg
+	move n – 1 disks from the temp peg to the dest peg using the source peg
+*/
