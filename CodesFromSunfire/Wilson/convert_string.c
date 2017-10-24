@@ -22,9 +22,11 @@ int main () {
 void convert_string (char str[20+1], char dest[1000]) {
 	int count = 0, i;
 	for (i = 0; str[i] != '\0'; i++) {
-		if (str[i] != ' ') {
+		if (str[i] != ' ' && str[i] != '\n') {
 			dest[count++] = str[i];
 			dest[count++] = '*';
 		}
 	}
+	dest[--count] = '\0'; // To force a null at the end after the loop completes. 
+	// --count was used to add the null character at the end to replace extra asterix.
 }

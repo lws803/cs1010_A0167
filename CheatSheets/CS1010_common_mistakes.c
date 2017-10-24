@@ -182,6 +182,8 @@ fgets (str2, MAX_LENGTH, stdin); // Then we can use MAX_LENGTH
 ---------------------------------------------------------------------------------------------------------------------------
 // strcpy cant be used with pointer addresses 
 char *fruit1 = "test", *fruit2 = "test2";
-strcpy (fruit1, fruit2);
-// will compile but fruit1 cant be printed, will give a bus error. 
-printf ("%s\n", fruit1); // Will throw a bus error 
+strcpy (fruit1, fruit2); // cant be done because fruit1 is not modifiable 
+// When we declare a pointer variable to anything, it is not modifiable even though it appears like it might be. 
+
+// Also strcpy cant work when a destination is smaller than the size we wish to copy in. 
+
