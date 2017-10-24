@@ -174,3 +174,9 @@ scanf("%s", str);
 // or 
 char str2[10] = "Hello_world";
 
+---------------------------------------------------------------------------------------------------------------------------
+// strcpy cant be used with pointer addresses 
+char *fruit1 = "test", *fruit2 = "test2";
+strcpy (fruit1, fruit2);
+// will compile but fruit1 cant be printed, will give a bus error. 
+printf ("%s\n", fruit1); // Will throw a bus error 
