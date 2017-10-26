@@ -154,7 +154,7 @@ void spawn_next_community (char community[][DIM_COL+2], char prevCommunity[][DIM
 			}
 
 		}
-	}
+	}	
 }
 
 int recurring_community (char community[][DIM_COL+2], char prevCommunity[][DIM_COL+2]) {
