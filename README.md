@@ -15,7 +15,7 @@ Sample code for interview questions:
 https://github.com/royalpranjal/Interview-Bit
 
 
-# Some schedule to be vary of: 
+# Some schedule to be wary of: 
 
 CS1010:
 
@@ -28,7 +28,6 @@ Exam:
 
 CS1010E:
 
-Practical Exam #2	25 Oct 2017 (Wed)
 Practical Exam #3	15 Nov 2017 (Wed)
 
 Exam:
