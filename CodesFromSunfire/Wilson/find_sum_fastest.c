@@ -47,7 +47,7 @@ int find_pair (int arr[], int size, int sum, int *count) {
 		if (arr[i] + arr[d] > 8) {
 			// Too big
 			d--;
-		}else if (arr[i] + arr[d] == 8) {
+		}else if (arr[i] + arr[d] == sum) {
 			return 1;
 		}else {
 			// Too small
