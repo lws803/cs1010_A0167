@@ -455,3 +455,10 @@ void tokenisation (char str[]) {
    	token = strtok(NULL, s);
    }
 }
+
+// Character insert at the back of string
+void character_ins (char str[], char insert) {
+	int i = strlen (str);
+	str[i++] = insert;
+	str[i] = '\0';
+}
