@@ -44,7 +44,7 @@ int find_pair (int arr[], int size, int sum, int *count) {
 	while (i != d) {
 		runs++;
 		*count = runs;
-		if (arr[i] + arr[d] > 8) {
+		if (arr[i] + arr[d] > sum) {
 			// Too big
 			d--;
 		}else if (arr[i] + arr[d] == sum) {
