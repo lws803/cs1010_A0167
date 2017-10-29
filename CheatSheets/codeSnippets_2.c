@@ -462,3 +462,61 @@ void character_ins (char str[], char insert) {
 	str[i++] = insert;
 	str[i] = '\0';
 }
+
+
+// Finding most frequent pairs of letters (bigram)
+
+int mostFrequentBigram (char text[], char result[]) {
+	int i, count = 0, d;
+	for (i = 0; text[i] != '\0'; i++) {
+		char str[2];
+		int count2 = 0;
+		if (text[i] != ' ' && text[i+1] != ' ' && text[i+1] != '\0') {
+			str[0] = text[i];
+			str[1] = text[i+1];
+
+			for (d = i; text[d] != '\0'; d++) {
+				if (str[0] == text[d] && str[1] == text[d+1]) {
+					count2++;
+				}
+			}
+		}
+
+		if (count2 > count) {
+			count = count2;
+			result [0] = str[0];
+			result [1] = str[1];
+			// Tricky part, must always let the alphabet which comes first
+		} else if (count2 == count && result[0] > str[0]) {	
+			count = count2;
+			result [0] = str[0];
+			result [1] = str[1];
+		}
+	}
+	
+	result [2] = '\0';
+
+	return count;
+}
+
+// Finding most frequently appearing alphabet - using a hash table
+
+int mostFrequentUnigram (char text[], char result[]) {
+	int hash_table [ASCII] = {0}, i;
+	for (i = 0; text[i] != '\0'; i++) {
+		if (isalpha(text[i])) {
+			hash_table[text[i]] += 1;
+		}
+	}
+	int frequency = 0, index = 0; 
+	for (i = 0; i < ASCII; i++) {
+		if (frequency < hash_table[i]) {
+			frequency = hash_table[i];
+			index = i;
+		}
+	}
+	result[0] = index;
+	result[1] = '\0';
+	
+	return frequency;
+}
