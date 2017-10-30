@@ -1,6 +1,6 @@
 # cs1010_A0167
 
-CS1010 shite and tips
+## CS1010 shite and tips
 
 CS1010 Resources link
 http://www.comp.nus.edu.sg/~cs1010/2_resources/lectures.html
@@ -14,6 +14,7 @@ https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/
 Sample code for interview questions: 
 https://github.com/royalpranjal/Interview-Bit
 
+## Redbull status: 12
 
 # Some schedule to be wary of: 
 
