@@ -187,3 +187,10 @@ strcpy (fruit1, fruit2); // cant be done because fruit1 is not modifiable
 
 // Also strcpy cant work when a destination is smaller than the size we wish to copy in. 
 
+---------------------------------------------------------------------------------------------------------------------------
+fgets (arr, 100, stdin);
+
+// fgets actually records down the new line before ending off. so use for loop with '\n' instead. 
+for (i = 0; arr[i] != '\n'; i++) {
+    // Your code here 
+}
