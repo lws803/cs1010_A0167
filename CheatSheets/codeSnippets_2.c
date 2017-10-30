@@ -499,6 +499,38 @@ int mostFrequentBigram (char text[], char result[]) {
 	return count;
 }
 
+// Finding most frequent bigram with a hastable_multidim
+
+int mostFrequentBigram (char text[], char result[]) {
+	int i, count = 0, d, hashtable_multi[ASCII][ASCII] = {{0}};
+	// Init array 
+	for (i = 0; i < ASCII; i++) {
+		for (d = 0; d < ASCII; d++) {
+			hashtable_multi[i][d] = 0;
+		}
+	}
+	for (i = 0; text[i] != '\0'; i++) {
+		char str[2];
+		int count2 = 0;
+		if (isalnum(text[i]) && isalnum(text[i+1])) {	
+			hashtable_multi[text[i]][text[i+1]] += 1;
+		}
+	}
+	for (i = 0; i < ASCII; i++) {
+		for (d = 0; d < ASCII; d++) {
+			if (hashtable_multi[i][d] > count) {
+				result[0] = i;
+				result[1] = d;
+				count = hashtable_multi[i][d];
+			}
+		}
+	}
+	
+	result [2] = '\0';
+
+	return count;
+}
+
 // Finding most frequently appearing alphabet - using a hash table
 
 int mostFrequentUnigram (char text[], char result[]) {
