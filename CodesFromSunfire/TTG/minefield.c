@@ -92,10 +92,14 @@ void explode(int aftermath[][MAX_SIZE],int x, int y, int power,int size){
     }
 
     //scan vertical
-    for (i=x-dist;i<=x+dist && i >= 0 && i <size;i++)
-        aftermath[i][y]++;
+    for (i=x-dist;i<=x+dist;i++){
+        if (i >= 0 && i <size)
+            aftermath[i][y]++;
+    }
     //scan horizontal
-    for (i=y-dist;i<=y+dist && i >= 0 && i <size;i++)
-        aftermath[x][i]++;
+    for (i=y-dist;i<=y+dist;i++){
+        if (i >= 0 && i <size)
+            aftermath[x][i]++;
+    }
     aftermath[x][y]--;
 }
