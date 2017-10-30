@@ -194,3 +194,13 @@ fgets (arr, 100, stdin);
 for (i = 0; arr[i] != '\n'; i++) {
     // Your code here 
 }
+
+---------------------------------------------------------------------------------------------------------------------------
+// strcat relies heavily on null character "\0"
+// Helloworld\0 + test == Helloworldtest\0
+
+//Some tricks to settle this: 
+char word[MAX] = "\0"; // to make the first character a null character 
+
+// Not needed for fgets as it works like strcpy where characters are copied straight and replaced starting from word[0]
+
