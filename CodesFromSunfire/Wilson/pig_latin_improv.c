@@ -9,13 +9,19 @@ int checkVowel (char );
 
 int main(void) {
 	char sentence[MAX + 1], target[MAX + 1] = "\0";
-	
+	int i;
 	printf("Enter sentence: ");
 	fgets (sentence, 81, stdin);
-
+	
+	// fgets will record the newline down
+	for (i = 0; sentence[i] != '\0'; i++) {
+		if (sentence[i] == '\n') {
+			sentence [i] = '\0';
+		}
+	}
 
 	convert (sentence, target);
-
+	
 
 	printf("\nConverted: %s\n", target);
 

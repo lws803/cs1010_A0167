@@ -195,6 +195,13 @@ for (i = 0; arr[i] != '\n'; i++) {
     // Your code here 
 }
 
+// Or remove it early on using: 
+for (int i = 0; word[i] != '\0'; i++) {
+    if (word[i] == '\n') {
+        word[i] = '\0'; // To replace the newline with null char
+    }
+}
+
 ---------------------------------------------------------------------------------------------------------------------------
 // strcat relies heavily on null character "\0"
 // Helloworld\0 + test == Helloworldtest\0
