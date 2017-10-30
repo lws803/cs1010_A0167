@@ -20,12 +20,15 @@
 void print_help();
 int sumArr(int arr[][2],int);
 int aveArr(int arr[][2],int);
-void sortArr(int arr[][2],int);
+//void sortArr(int arr[][2],int);
+int searchRank(int arr[][2],int,int);
+
 
 int main(void){
 	
 	// The string for input command, do not modify...
 	char input[MAX_COMMAND_LENGTH];
+	int rankID,i;
 	int lastID=0; 	// Keeps track of the last ID and also validates the number of IDs input into the array.
 	int sum,ave; 
 	int scores[MAX_STUDENTS][SCORE_ROW];
@@ -76,8 +79,13 @@ int main(void){
 		} 
 		
 		else if (strcmp(input,"init") == 0) {
-			lastID = 0;
 			printf("Initializing table...\n");
+			for (i=0;i<lastID;i++){
+				scores[i][0] = 0;
+				scores[i][1] = 0;
+			}
+			lastID = 0;
+			
 		} 
 		
 		else if (strcmp(input,"rank") == 0) {
@@ -85,7 +93,6 @@ int main(void){
 				printf("The table is empty\n");
 			} 
 			else {
-				sortArr(scores,lastID);
 				int ranking;
 				do {
 					printf("Please input the rank (1 - %d)...\n",lastID);
@@ -95,7 +102,11 @@ int main(void){
 					}
 				} while (ranking>lastID || ranking < 1);
 				
-				printf("ID: %d, Score: %d\n",scores[ranking-1][0],scores[ranking-1][1]);
+				printf("%d\n",ranking);
+				rankID = searchRank(scores,ranking,lastID);
+				printf("%d\n",rankID);
+				
+				printf("ID: %d, Score: %d\n",scores[rankID][0],scores[rankID][1]);
 			}
 		} 
 		
@@ -137,6 +148,32 @@ int aveArr(int arr[][2],int num){
 	return (int)ave;
 }
 
+int searchRank(int arr[][2],int rank,int size){
+	int greatestScore = 0,greatestID,prevGreatest,first=1;
+	int i,counter,ID;
+	
+	for (counter=1;counter <= rank;counter++){
+		for (i=0;i<size;i++){
+			if (arr[i][1] > greatestScore && arr[i][1] < prevGreatest && !first){
+				greatestScore = arr[i][1];
+				greatestID = arr[i][0];
+			}
+			if (first){
+				greatestScore = arr[i][1];
+				greatestID = arr[i][0];
+				first = 0;
+			}
+			prevGreatest = greatestScore;
+			ID = greatestID;
+			//printf("greatestID: %d\n",ID);
+		}
+	}
+	return ID;
+}
+
+//IGNORE THIS PART: Relic after the email.
+
+/*
 // This function sorts the array of scores based on the score.
 // If there are same scores, it will sort by ID.
 //Precond: num > 0
@@ -163,3 +200,4 @@ void sortArr(int arr[][2],int num){
         }  
 	}
 }
+*/
