@@ -241,18 +241,16 @@ void trickle (int arr[], int size, int index) {
 }
 
 
-// Trace a multi-dimensional array for elements that chain diagonally rightwards 
+// Trace a multi-dimensional array for elements that chain diagonally rightwards/ downwards 
 
 int checkDiag (int arr[][MAX], int number, int startingX, int startingY) {
 	int i, d, count = 0;
-	for (i = startingX; i < DIM; i++) {
-		if (board[startingY][i] == number) {
+	for (i = startingX, d = startingY; i < DIM; i++, d++) {
+		if (board[d][i] == number) {
 			count++;
-			printf("%d\n", count);
 		}else {
 			break;
 		}
-		startingY++;
 	}
 	return count;
 }
@@ -270,34 +268,6 @@ int checkHorizontal (int arr[][MAX], int number, int startingX, int startingY) {
 
 	}
 	return count;
-}
-
-// Check neighbouring points of a single coordinate in a multi dimensional array 
-
-int check_all_neighbours (char community[][DIM_COL+2], int x, int y) {
-	int neighbours = 0;
-	int i;
-	// scan top row 
-	for (i = x-1; i <= x+1; i++) {
-		if (community[y-1][i] == 'O') {
-			neighbours++;
-		}
-	} 
-	// scan bottom row
-	for (i = x-1; i <= x+1; i++) {
-		if (community[y+1][i] == 'O') {
-			neighbours++;
-		}
-	}
-
-	if (community[y][x-1] == 'O') {
-		neighbours++;
-	}
-	if (community[y][x+1] == 'O') {
-		neighbours++;
-	}
-
-	return neighbours;
 }
 
 // Check for neighbours in a specific direction and call the respective checkers to traverse in that direction 
@@ -419,26 +389,6 @@ int sum_circle (int arr[MAX_SLICES], int size, int index, int numSums) {
 	return sum;
 }
 
-// Word Counting 
-int word_count(char str[]) {
-	int i, count = 0, word_count = 0;
-	for (i = 0; str[i] != '\0'; i++) {
-		if (isalpha(str[i])) {
-			// Detection of normal words
-			count = 1;
-		}
-		if ((count == 1 && str[i] == ' ')){
-			// Last word can be tricky to recognise.
-			// Detection of white spaces and any other weird characters or when the sentence ends. 
-			word_count++;
-			count = 0;
-		}
-	}
-	if (count == 1) {
-		word_count++;
-	}
-	return word_count;
-}
 
 // String tokenisation 
 void tokenisation (char str[]) {
@@ -552,3 +502,23 @@ int mostFrequentUnigram (char text[], char result[]) {
 	
 	return frequency;
 }
+
+// Compares target against source to look for list of matches, if yes return 1 else return 0;
+
+int compare (char target[], char source[26][MAXLEN]) {
+	int i;
+	for (i = 0; i < 26; i++) {
+		if (strcmp (store, alphabet[i]) == 0) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+// Appends a new letter into array while adding a NULL character at the back after adding.
+
+int index = 0; 
+for (i = 0; name[i] != '\0'; i++) {
+		store[index++] = name[i];
+		store[index] = '\0';
+	}
