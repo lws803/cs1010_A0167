@@ -67,11 +67,8 @@ int decrypt(char name[]){
 }
 
 int compare (char store[], char alphabet[26][MAXLEN]) {
-	int i;
-	for (i = 0; i < 26; i++) {
-		if (strcmp (store, alphabet[i]) == 0) {
-			return 1;
-		}
+	if (strcmp (store, alphabet[store[0] - 'A']) == 0) {
+		return 1;
 	}
 	return 0;
 }
