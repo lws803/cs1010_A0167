@@ -2,7 +2,7 @@
 
 ## CS1010 shite and tips
 
-##PLEASE TRY TO KEEP AT LEAST 80% CODE IN C
+## PLEASE TRY TO KEEP AT LEAST 80% CODE IN C
 
 CS1010 Resources link
 http://www.comp.nus.edu.sg/~cs1010/2_resources/lectures.html
