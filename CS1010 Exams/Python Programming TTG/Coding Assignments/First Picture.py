@@ -1,0 +1,7 @@
+print("     ////////\\\\\\\\\\\ ")
+print("    //////////\\\\\\\\\\\\")
+print("   /////////\\\\\\\\\\\\\\\\")
+print("  !!!!!!!!!!IIIIIIIIIIIIIIII")
+print("  !!000!!!!!IIIIIIIIIIIIIIII")
+print("  !!000!!!!!IIIIIIIIIIIIIIII")
+print("  !!!!!!!!!!IIIIIIIIIIIIIIII")

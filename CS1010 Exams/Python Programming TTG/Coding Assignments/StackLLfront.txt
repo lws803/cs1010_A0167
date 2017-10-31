@@ -1,0 +1,42 @@
+class Stack_LL_front(Node):
+    def __init__(self):
+        self.head = Node()
+        self.length = 0
+
+    def size(self):
+        return self.length
+
+    def __str__ (self):
+        text = ''
+        current = self.head
+        items = self.size()
+        while items > 0:
+            current = current.get_ptr()
+            text += "{0}\n".format(current.get_data())
+            items -= 1
+        return text
+
+    def isEmpty(self):
+        return self.length == 0
+
+    def push(self,item):
+        item_node = Node()
+        item_node.set_data(item)
+        
+        if self.isEmpty():
+            self.head.set_ptr(item_node)
+            self.length += 1
+        else:
+            item_node.set_ptr(self.head.get_ptr())
+            self.head.set_ptr(item_node)
+            self.length += 1
+
+    def pop(self):
+        if self.isEmpty():
+            print("UNDERFLOW")
+        else:
+            self.head.set_ptr((self.head.get_ptr()).get_ptr())
+            self.length -= 1
+
+    def size(self):
+        return self.length
