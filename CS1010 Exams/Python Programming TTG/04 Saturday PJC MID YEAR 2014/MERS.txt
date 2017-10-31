@@ -1,0 +1,18 @@
+Saudi Arabia,531,173
+United Arab Emirates,14,0
+Qatar,8,4
+Oman,2,0
+Jordan,9,5
+Kuwait,1,0
+Yemen,1,0
+Lebanon,1,0
+United Kingdom,1,0
+France,1,0
+Tunisia,1,0
+Italy,1,0
+Malaysia,1,1
+Turkey,1,0
+Greece,1,0
+Egypt,1,0
+United States of America,2,0
+Netherlands,2,0
