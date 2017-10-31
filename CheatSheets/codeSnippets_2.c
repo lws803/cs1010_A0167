@@ -521,4 +521,22 @@ int index = 0;
 for (i = 0; name[i] != '\0'; i++) {
 		store[index++] = name[i];
 		store[index] = '\0';
-	}
+}
+
+
+// Recursion for solving north east question 
+
+int ne(int y, int x) {
+ 
+    if (x == 0 && y == 0) {
+        return 1;
+    }
+    int npaths = 0, epaths = 0;
+    if (y != 0) {
+        npaths = ne(y - 1, x);
+    }
+    if (x != 0) {
+        epaths = ne (y, x - 1);
+    }
+    return npaths + epaths;
+}
