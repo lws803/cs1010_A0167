@@ -1,0 +1,15 @@
+Albert Tan,60
+Mary Yeo,80
+James Lee,75
+Jolene Thong,85
+Victor Lim,50
+Eugene Huang,90
+Mathew Zhang,57
+Aileen Leong,64
+Howard Lim,90
+Peter Teo,35
+Harry Poon,70
+Sally Yeo,49
+Bernard Leow,67
+Edward Giam,72
+Sam Kanapathy,100
