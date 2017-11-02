@@ -540,3 +540,18 @@ int ne(int y, int x) {
     }
     return npaths + epaths;
 }
+
+
+// String compression (removal of " " and strcat into new string)
+char newStr [10] = "\0";
+void compress (char str[]) {
+   const char s[2] = " ";
+   char *token;
+
+   token = strtok(str, s);
+
+   while( token != NULL ) {
+   	strcat (newStr, token);
+   	token = strtok(NULL, s);
+   }
+}
