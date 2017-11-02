@@ -332,9 +332,9 @@ void search_for_neighbours (char matrix[MAX][MAX], int size, char word[WORDSIZE]
 
 void search_surrounding (int arr[MAX][MAX], int x, int y) {
 	int i, d;
-	for (i = -1; y+i < MAX && y+i >= 0 && i < 2; i++) {
-		for (d = -1; x+d < MAX && x+d >= 0 && d < 2; d++) {
-			if (i == 0 && d == 0) {
+	for (i = y-1; y+i < MAX && y+i >= 0 && i < 2; i++) {
+		for (d = x-1; x+d < MAX && x+d >= 0 && d < 2; d++) {
+			if (i == y && d == x) {
 				// position is at original coords
 			}else {
 				printf("%d ", arr[y+i][x+d]);
