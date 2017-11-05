@@ -93,6 +93,18 @@ int computePrereq(char codes[][MAX_LEN], int size, char target[], char prerequis
 			}
 		}
 	}
+	if (count == 0) {
+		int check = 0;
+		for (i = 0; i < size; i++) {
+			if (strcmp(codes[i], target) == 0) {
+				check++;
+			}
+		}
+		if (check < 1) {
+			return -1;
+		}
+		return 0;
+	}
 	return count;
 }
 
