@@ -7,11 +7,12 @@
  */
 
 #include <stdio.h>
-#define MAX_STATIONS 20
+#define MAX_STATIONS 21
 
 void readStations(int [], int [], int *, int *);
 void printStations(int [], int [], int, int);
 int calcPossibleRoutes(int , int , int , int [], int [] , int, int);
+int insert (int[], int [], int, int, int);
 
 int main() {
 	int distances[MAX_STATIONS];
@@ -21,6 +22,8 @@ int main() {
 
 	readStations(distances, fuels, &totalDist, &numStation); 
 	printStations(distances, fuels, totalDist, numStation); 
+
+	numStation = insert(distances, fuels, 0, 0, numStation);
 
 	possibleRoute = calcPossibleRoutes(100, totalDist, numStation, distances, fuels, 0, 0);
 	printf("Possible number of routes = %d\n", possibleRoute);
@@ -70,36 +73,30 @@ void printStations(int distances[], int fuels[], int totalDist, int numStation) 
 int calcPossibleRoutes(int currentFuel, int targetDistance, int numStation, int distances[], int fuels[], int index, int distanceTravelled) {
 	int d, routes = 0;	
 	if (currentFuel + distanceTravelled >= targetDistance) {
-		routes++;
+		return 1;
 	}
 
-	if (index == 0) {
-		// Starting
-		for (d = 0; index + d < numStation; d++) {
-		// Travel to distance of index
-		int distance = distances[index + d];
+	for (d = 1; index + d < numStation; d++) {
+		// Travel to distance of index + d
+		int distance = distances[index + d] - distances[index];
 		int fuelLeft = currentFuel - distance + fuels[index + d];
 		if (fuelLeft >= 0)
 			routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index + d]);
-		}
-	}else {
-		// Subsequently
-		for (d = 1; index + d < numStation; d++) {
-			// Travel to distance of index + d
-			int distance = distances[index + d] - distances[index];
-			int fuelLeft = currentFuel - distance + fuels[index + d];
-			if (fuelLeft >= 0)
-				routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index + d]);
-		}
 	}
-
-
-	
-
 
 	return routes;
 	
 }
 
 
-
+int insert (int arr[], int arr2[], int element, int atIndex, int size) {
+    int i;
+    for (i = size-1; i >= atIndex; i--) {
+        arr[i+1] = arr[i];
+        arr2[i+1] = arr2[i];
+    }
+    arr[atIndex] = element;
+    arr2[atIndex] = element;
+    size++;
+    return size;
+}
