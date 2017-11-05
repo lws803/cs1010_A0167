@@ -555,3 +555,19 @@ void compress (char str[]) {
    	token = strtok(NULL, s);
    }
 }
+
+
+// Flood fill algo, could've helped with PE2
+void fill (char matrix[][MAX], int x, int y) {	
+	matrix[y][x] = 'x';
+
+
+	if (x+1 < MAX && matrix[y][x+1] != 'x')
+		fill (matrix, x+1, y);
+	if (x-1 >= 0 && matrix[y][x-1] != 'x')
+		fill (matrix, x-1, y);
+	if (y-1 >= 0 && matrix[y-1][x] != 'x')
+		fill (matrix, x, y-1);
+	if (y+1 < MAX && matrix[y+1][x] != 'x')
+		fill (matrix, x, y+1);
+}
