@@ -69,24 +69,37 @@ void printStations(int distances[], int fuels[], int totalDist, int numStation) 
 // Fill in description of function and brief explanation
 int calcPossibleRoutes(int currentFuel, int targetDistance, int numStation, int distances[], int fuels[], int index, int distanceTravelled) {
 	int d, routes = 0;	
-	if (currentFuel < 0) {
-		return 0;
-	}
-
-
 	if (currentFuel + distanceTravelled >= targetDistance) {
 		routes++;
 	}
 
-
-	for (d = 1; index + d < numStation; d++) {
-		int distance = distances[index + d] - distances[index];
+	if (index == 0) {
+		// Starting
+		for (d = 0; index + d < numStation; d++) {
+		// Travel to distance of index
+		int distance = distances[index + d];
 		int fuelLeft = currentFuel - distance + fuels[index + d];
-		routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index]);
+		if (fuelLeft >= 0)
+			routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index + d]);
+		}
+	}else {
+		// Subsequently
+		for (d = 1; index + d < numStation; d++) {
+			// Travel to distance of index + d
+			int distance = distances[index + d] - distances[index];
+			int fuelLeft = currentFuel - distance + fuels[index + d];
+			if (fuelLeft >= 0)
+				routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index + d]);
+		}
 	}
+
+
+	
 
 
 	return routes;
 	
 }
+
+
 
