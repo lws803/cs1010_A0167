@@ -22,7 +22,7 @@ https://github.com/royalpranjal/Interview-Bit
 
 CS1010:
 
-Practical Exam #2	4 Nov 2017 (Sat):
+~~Practical Exam #2	4 Nov 2017 (Sat):
 Session 1: 12:30-3pm
 Session 2: 3-5:30pm
 
