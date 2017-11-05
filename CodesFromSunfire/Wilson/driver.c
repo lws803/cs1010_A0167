@@ -11,7 +11,7 @@
 
 void readStations(int [], int [], int *, int *);
 void printStations(int [], int [], int, int);
-int calcPossibleRoutes(int , int , int , int [], int [], int , int);
+int calcPossibleRoutes(int , int , int , int [], int [] , int, int);
 
 int main() {
 	int distances[MAX_STATIONS];
@@ -67,29 +67,26 @@ void printStations(int distances[], int fuels[], int totalDist, int numStation) 
 }
 
 // Fill in description of function and brief explanation
-int calcPossibleRoutes(int currentFuel, int targetDistance, int numStation, int distances[], int fuels[], int distanceTravelled, int index) {
-	// Termination 
-	int prevDistance = 0;
-	if (index > 0) {
-		prevDistance = distances[index-1];
-	}
-	int fuelLeft = currentFuel - distances[index] + prevDistance + fuels[index]; // Current fuel after deducting and adding from the current station
-	
-	// If fuel is negative, it couldnt have gone to that station in the first place
-	if (fuelLeft < 0) {
+int calcPossibleRoutes(int currentFuel, int targetDistance, int numStation, int distances[], int fuels[], int index, int distanceTravelled) {
+	int d, routes = 0;	
+	if (currentFuel < 0) {
 		return 0;
 	}
 
-	int i, possibleRoute = 0;
-	for (i = index + 1; i < numStation; i++) {
-		possibleRoute += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, distances[i], i);
+
+	if (currentFuel + distanceTravelled >= targetDistance) {
+		routes++;
 	}
 
-	// At any point in time if it knows that it can travel all the way till the end without refuelling, it will count as a possible route
-	if (fuelLeft + distanceTravelled >= targetDistance) {
-		// Enough fuel to travel to the the target distance 
-		possibleRoute += 1;
+
+	for (d = 1; index + d < numStation; d++) {
+		int distance = distances[index + d] - distances[index];
+		int fuelLeft = currentFuel - distance + fuels[index + d];
+		routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index]);
 	}
-	return possibleRoute; 
+
+
+	return routes;
+	
 }
 
