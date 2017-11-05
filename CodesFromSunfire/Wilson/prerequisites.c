@@ -63,7 +63,7 @@ void printPrereq(char prerequisites[][MAX_LEN], int numPrereq, char target[]) {
 
 int scanModules (char codes[][MAX_LEN]) {
 	int size; 
-	printf("Enter number of modules: ");
+	printf("Enter number of modules:");
 	scanf ("%d", &size);
 	int i;
 	printf("Enter %d modules: \n", size);
@@ -93,17 +93,14 @@ int computePrereq(char codes[][MAX_LEN], int size, char target[], char prerequis
 			}
 		}
 	}
-	if (count == 0) {
-		int check = 0;
-		for (i = 0; i < size; i++) {
-			if (strcmp(codes[i], target) == 0) {
-				check++;
-			}
+	int check = 0;
+	for (i = 0; i < size; i++) {
+		if (strcmp(codes[i], target) == 0) {
+			check++;
 		}
-		if (check < 1) {
-			return -1;
-		}
-		return 0;
+	}
+	if (check < 1) {
+		return -1;
 	}
 	return count;
 }
