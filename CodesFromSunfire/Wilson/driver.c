@@ -7,12 +7,12 @@
  */
 
 #include <stdio.h>
-#define MAX_STATIONS 21
+#define MAX_STATIONS 22
 
 void readStations(int [], int [], int *, int *);
 void printStations(int [], int [], int, int);
 int calcPossibleRoutes(int , int , int , int [], int [] , int, int);
-int insert (int[], int [], int, int, int);
+int insert (int[], int [], int, int, int, int);
 
 int main() {
 	int distances[MAX_STATIONS];
@@ -23,7 +23,10 @@ int main() {
 	readStations(distances, fuels, &totalDist, &numStation); 
 	printStations(distances, fuels, totalDist, numStation); 
 
-	numStation = insert(distances, fuels, 0, 0, numStation);
+	numStation = insert(distances, fuels, 0, 0, 0, numStation);
+	numStation = insert(distances, fuels, totalDist, 0, numStation, numStation);
+	//printStations(distances, fuels, totalDist, numStation); 
+
 
 	possibleRoute = calcPossibleRoutes(100, totalDist, numStation, distances, fuels, 0, 0);
 	printf("Possible number of routes = %d\n", possibleRoute);
@@ -72,16 +75,26 @@ void printStations(int distances[], int fuels[], int totalDist, int numStation) 
 // Fill in description of function and brief explanation
 int calcPossibleRoutes(int currentFuel, int targetDistance, int numStation, int distances[], int fuels[], int index, int distanceTravelled) {
 	int d, routes = 0;	
-	if (currentFuel + distanceTravelled >= targetDistance) {
-		return 1;
+	//printf("%d\n", index);
+
+	// TODO: Make the fuel checking outside of for loop
+	int distance = distances[index] - distanceTravelled;
+	int fuelLeft = currentFuel - distance;
+
+	if (fuelLeft < 0) {
+		return 0;
+	}else {
+		fuelLeft += fuels[index];
+	}
+
+	if (distances[index] == targetDistance) {
+		routes++;
 	}
 
 	for (d = 1; index + d < numStation; d++) {
-		// Travel to distance of index + d
-		int distance = distances[index + d] - distances[index];
-		int fuelLeft = currentFuel - distance + fuels[index + d];
-		if (fuelLeft >= 0)
-			routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index + d]);
+		// Travel to distance of index + d (first station all the way back)
+		routes += calcPossibleRoutes (fuelLeft, targetDistance, numStation, distances, fuels, index + d, distances[index]);
+
 	}
 
 	return routes;
@@ -89,14 +102,14 @@ int calcPossibleRoutes(int currentFuel, int targetDistance, int numStation, int 
 }
 
 
-int insert (int arr[], int arr2[], int element, int atIndex, int size) {
+int insert (int arr[], int arr2[], int element1, int element2, int atIndex, int size) {
     int i;
     for (i = size-1; i >= atIndex; i--) {
         arr[i+1] = arr[i];
         arr2[i+1] = arr2[i];
     }
-    arr[atIndex] = element;
-    arr2[atIndex] = element;
+    arr[atIndex] = element1;
+    arr2[atIndex] = element2;
     size++;
     return size;
 }
