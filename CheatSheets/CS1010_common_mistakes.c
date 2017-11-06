@@ -211,3 +211,48 @@ char word[MAX] = "\0"; // to make the first character a null character
 
 // Not needed for fgets as it works like strcpy where characters are copied straight and replaced starting from word[0]
 
+---------------------------------------------------------------------------------------------------------------------------
+typedef struct {
+    int a;
+}s_t;
+// When scanning into a struct, 
+
+s_t s;
+scanf ("%d", &s.a) 
+scanf ("%d", &(s.a))
+// Are valid 
+
+scanf ("%d", (&s).a) // Invalid - (&s) means memory address of s and it does not contain a. 
+scanf ("%d", s.&a) // Invalid - use of undeclared identifier 
+
+---------------------------------------------------------------------------------------------------------------------------
+typedef struct {
+    int a;
+}test_t;
+
+// When parsing a struct from int main to another function 
+int main() {
+    test_t test;
+    func(test);
+
+    // Print test.a will non hold any value.  
+}
+
+void func (test_t test) {
+    test.a = 10;
+}
+
+/* instead what we should do is */
+int main() {
+    test_t test;
+    func(&test);
+
+    // Print test.a will non hold any value.  
+}
+
+void func (test_t *test) {
+    test->a = 10;
+    // Take note we use an arrow here instead to reference the item inside the struct
+}
+
+---------------------------------------------------------------------------------------------------------------------------

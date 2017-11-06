@@ -66,7 +66,7 @@ int scanModules (char codes[][MAX_LEN]) {
 	printf("Enter number of modules:");
 	scanf ("%d", &size);
 	int i;
-	printf("Enter %d modules: \n", size);
+	printf("Enter %d modules:\n", size);
 	for ( i = 0; i < size; i++) {
 		scanf("%s", codes[i]);
 	}
