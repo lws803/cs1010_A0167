@@ -1,9 +1,9 @@
 /**
  * CS1010 AY2017/8 Semester 1 Lab6 Ex3
  * elevator.c
- * <Type a description of the program here>
- * <Type your name here>
- * <Type your discussion group here>
+ * calculates best elevator 
+ * Ler Wei Sheng
+ * C04
  */
 
 #include <stdio.h>
@@ -65,6 +65,9 @@ void readSequences(char sequences[][MAX_LEN], int size){
 	}
 }
 
+// Runs the elevator
+// Precond: none
+
 void runElevators(elevator_t elevators[], char sequences[][MAX_LEN], int size){
 	int i, d;
 	for (i = 0; i < size; i++) {
@@ -76,16 +79,20 @@ void runElevators(elevator_t elevators[], char sequences[][MAX_LEN], int size){
 	}	
 }
 
+
+// Go to the specified floor 
+// Precond: none 
+
 void goToFloor(elevator_t *elevator, int floor){
 	if (elevator->current_floor > floor) {
 		// Elevator going down 
 		elevator->current_floor = floor;
-		elevator->current_passengers -= floor;
-		elevator->numExits += floor;
-
 		if (elevator->current_passengers < floor) {
 			elevator->numExits += elevator->current_passengers;
 			elevator->current_passengers = 0;
+		}else {
+			elevator->current_passengers -= floor;
+			elevator->numExits += floor;
 		}
 	}
 	if (elevator->current_floor < floor) {
@@ -102,13 +109,15 @@ void goToFloor(elevator_t *elevator, int floor){
 void printElevators(elevator_t elevators[], int size){
 	int i;
 	for (i = 0; i < size; i++) {
-		printf("Elevator : %d\n", i+1); 
+		printf("Elevator %d:\n", i+1); 
 		printf("Floor: %d\n", elevators[i].current_floor);
 		printf("Number of passengers: %d\n", elevators[i].current_passengers);
 		printf("Usage: %d\n", elevators[i].numExits);
 	}
 }
 
+// Calculates most used elevator
+// Precond: none
 int mostUsedElevator(elevator_t elevators[], int size){
 	int i, mostUsed = elevators[0].numExits, mostUsedElevator = 0;
 	for (i = 0; i < size; i++) {
@@ -116,7 +125,11 @@ int mostUsedElevator(elevator_t elevators[], int size){
 			mostUsedElevator = i;
 			mostUsed = elevators[i].numExits;
 		}
+		else if (mostUsed == elevators[i].numExits && elevators[mostUsedElevator].current_passengers < elevators[i].current_passengers) {
+			mostUsedElevator = i;
+		}
 	}
 	return mostUsedElevator;
+
 }
 
