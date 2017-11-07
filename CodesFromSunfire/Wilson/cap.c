@@ -41,7 +41,6 @@ int read (student_t *student) {
 		char grade [3];
 		scanf ("%s %s %d", student->results[i].module, grade, &student->results[i].mcs);
 		student->results[i].grade = convert_grade(grade);
-		//printf("%s %f %d\n", student.results[i].module, student.results[i].grade, student.results[i].mcs);
 	}
 
 	return size;
