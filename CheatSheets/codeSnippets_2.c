@@ -334,7 +334,7 @@ void search_surrounding (int arr[MAX][MAX], int x, int y) {
 	int i, d;
 	for (i = -1; y+i < MAX && y+i >= 0 && i < 2; i++) {
 		for (d = -1; x+d < MAX && x+d >= 0 && d < 2; d++) {
-			if (i == y && d == x) {
+			if (i == 0 && d == 0) {
 				// position is at original coords
 			}else {
 				printf("%d ", arr[y+i][x+d]);
