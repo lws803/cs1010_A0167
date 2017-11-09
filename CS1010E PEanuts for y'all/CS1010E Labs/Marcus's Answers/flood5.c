@@ -37,13 +37,13 @@ int main(void) {
          scanf("%d" ,&map[i][j] ) ;
       }
    }
-   
+
    floodArray ( n , map ) ;
 
    while (flag == 0 ) {
-   
+
       isSame = checkArray( map , mapOld ) ;
-   
+
       if (isSame == false ) {
          copyArray( map , mapOld ) ;
          floodArray ( n , map ) ;
@@ -158,7 +158,7 @@ int findArea( int map[][10] ) {
    int i , j ;
    int area = 0 ;
 
-  for ( i = 0 ; i < 10 ; i++ ) {
+   for ( i = 0 ; i < 10 ; i++ ) {
 
       for ( j = 0 ; j < 10 ; j++ ) {
 
@@ -177,30 +177,30 @@ int findPerimeter( int mapPerimeter[][12] ) {
    for ( i = 0 ; i < 12 ; i++ ) {
 
       for ( j = 0 ; j < 12 ; j++ ) {
-         
+
          if ( mapPerimeter[i][j] != -1 ) {
 
             if  (mapPerimeter[i-1][j] == -1 )  {
                perimeter += 1 ;
             }
 
-               if (mapPerimeter[i][j-1] == -1 ) {
+            if (mapPerimeter[i][j-1] == -1 ) {
                perimeter += 1 ;
-               }
+            }
 
-               if (mapPerimeter[i+1][j] == -1 ) {
-                perimeter += 1 ;
-               }
+            if (mapPerimeter[i+1][j] == -1 ) {
+               perimeter += 1 ;
+            }
 
-                  if (mapPerimeter[i][j+1] == -1 ) {
-                      perimeter += 1 ;
-                  }
-           
+            if (mapPerimeter[i][j+1] == -1 ) {
+               perimeter += 1 ;
+            }
+
 
          }
       }
    }
-   
+
    return perimeter ;
 }
 
@@ -210,8 +210,8 @@ void transferArray( int map[][10] , int mapPerimeter[][12] ) {
    for ( i = 0 ; i < 10 ; i++ ) {
 
       for ( j = 0 ; j < 10 ; j++ ) {
-            mapPerimeter[i+1][j+1] = map[i][j] ;
+         mapPerimeter[i+1][j+1] = map[i][j] ;
       }
    }
-return ;
+   return ;
 }
