@@ -123,6 +123,31 @@ OUTPUT
 UNDEFINED UNDEFINED UNDEFINED UNDEFINED
 UNDEFINED UNDEFINED UNDEFINED UNDEFINED
 
+void multiDimensionalArrayTest () {
+    /*
+     case 1:
+     when we allocate more columns than we declare
+     
+     case 2:
+     when we allocate only the row but not the column
+     
+     case 3:
+     when we allocate only the column but called more rows than the ones we've declared
+     */
+    
+    int arr[][4] = {{0}};
+    int i, k;
+    for (i = 0; i < 3; i++) {
+        for (k = 0; k < 4; k++) {
+            printf("%d\t", arr[i][k]);
+        }
+        printf("\n");
+    }
+}
+OUTPUT 
+0 0 0 0 
+0 0 0 0 
+0 0 0 0
 ---------------------------------------------------------------------------------------------------------------------------
 void charTest () {
     char c;
