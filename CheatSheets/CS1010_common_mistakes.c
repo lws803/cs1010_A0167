@@ -234,8 +234,8 @@ typedef struct {
 int main() {
     test_t test;
     func(test);
-
-    // Print test.a will non hold any value.  
+    printf ("%d\n", test.a);
+    // Print test.a will not hold any value. - it usually prints 0
 }
 
 void func (test_t test) {
