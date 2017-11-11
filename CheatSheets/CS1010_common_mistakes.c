@@ -158,6 +158,26 @@ while( token2 != NULL ) {
 }
 
 ---------------------------------------------------------------------------------------------------------------------------
+int main () {
+    char str[1000] = "1 + 2 (6 x (3 + 4)) + 5";
+    const char s[3] = "()";
+    char *token;
+   
+    token = strtok(str, s);
+    while( token != NULL ) {
+        printf("%s\n", token);
+        token = strtok(NULL, s);
+    }
+    return 0;
+}
+/**
+Will output: 
+1 + 2 
+6 x 
+3 + 4
+ + 5
+*/
+---------------------------------------------------------------------------------------------------------------------------
 char str[20] = "Hello world";
 
 printf("%lu\n", strlen(str)); // Outputs 11, number of letters including whitespace 
