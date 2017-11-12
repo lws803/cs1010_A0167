@@ -36,6 +36,7 @@ int main(int argc, char const *argv[])
 
 	scan_maze(maze);
 
+	printf("Maze input: \n");
 	print_maze(maze);
 
 	start_end_scan (&start, &end, maze);
@@ -49,7 +50,7 @@ int main(int argc, char const *argv[])
 
 	// Traceback
 	int trace_x = end.x, trace_y = end.y; 
-
+	maze[end.y][end.x] = '*';
 	while (trace_x != start.x || trace_y != start.y) {
 		// Continue tracing 
 		int i; 
@@ -57,12 +58,12 @@ int main(int argc, char const *argv[])
 			if (closed[i].x == trace_x && closed[i].y == trace_y) {
 				trace_x = closed[i].parent_x;
 				trace_y = closed[i].parent_y;
-				maze[trace_y][trace_x] = 'x';
+				maze[trace_y][trace_x] = '*';
 				break;
 			}
 		}
 	}
-
+	printf("Shortest path: \n");
 	print_maze (maze);
 
 	return 0;
