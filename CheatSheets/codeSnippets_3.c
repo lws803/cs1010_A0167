@@ -14,6 +14,12 @@ void readFile () {
 
 	fscanf (infile, "%d", &size); // to scan the file 
 
+	// To scan a file with multiple numbers without scanning last line twice**
+	while (fscanf(infile, "%d", &num) == 1) {
+		printf("%d\n", num);
+		// Process whatever you wish with num here. 
+	}
+
 	fclose (infile); // to close the file
 }
 
@@ -75,5 +81,4 @@ int countLines(char filename[]) {
 	fclose(fp); 
 	return count;
 }
-
 
