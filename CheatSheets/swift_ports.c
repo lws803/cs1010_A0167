@@ -62,7 +62,7 @@ void reversal(int arr[],int size){
 // Pop it off at the head 
 int pop (int arr[], int size) {
     int i;
-    for (i = 0; i < size; i++) {
+    for (i = 0; i < size - 1; i++) {
         arr[i] = arr[i+1];
     }
     size--;
@@ -71,11 +71,7 @@ int pop (int arr[], int size) {
 
 // Push it in the tail
 int push (int arr[], int element, int size) {
-    int i;
-    for (i = size-1; i >= size - 1; i--) {
-        arr[i+1] = arr[i];
-    }
-    arr[atIndex] = element;
+    arr[size] = element;
     size++;
     return size;
 }
