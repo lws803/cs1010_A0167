@@ -312,3 +312,21 @@ fscanf(infile, "%d", size1);
         // Process whatever you wish with num here. 
     }
 ---------------------------------------------------------------------------------------------------------------------------
+int recursive_binary(int arr[], int start, int end, int target) {
+    int mid = (end + start)/2 ;
+    if (arr[mid] == target) {
+        return mid;
+    }
+    if (start > end) {
+        return -1;
+    }
+    if (arr[mid] > target) {
+        return recursive_binary (arr, start, mid - 1, target); 
+        // Usually confuse this for mid + 1 or just mid. 
+        // The reason why we use mid - 1 is to account for the rounding up of integers 
+    }else {
+        return recursive_binary (arr, mid + 1, end, target);
+    }
+    return -1;
+}
+---------------------------------------------------------------------------------------------------------------------------
