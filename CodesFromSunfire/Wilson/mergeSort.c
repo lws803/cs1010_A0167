@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
 
 	printf("--------Recursive merge sort--------\n");
 	//int arr_test[MAX] = {5,6,2,7,3,9,10};
-	int arr_test[MAX] = {7,8,3,1,9,4,10};
+	int arr_test[MAX] = {7,8,3,1,4,4,10};
 	int size2 = 7;
 	mergeSort (arr_test, size2);
 	for (int i = 0; i < size2; ++i)
@@ -63,6 +63,10 @@ void merge (int arrL[], int arrR[], int arr[], int left_size, int right_size) {
 		}
 
 		if (arrL[i] < arrR[j]) {
+			arr[index++] = arrL[i++];
+		}
+		if (arrL[i] == arrR[j]) {
+			arr[index++] = arrR[j++];
 			arr[index++] = arrL[i++];
 		}
 	}

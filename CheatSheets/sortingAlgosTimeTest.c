@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#define MAX 100
+#define MAX 16000
 
 int bubbleSort (int[], int);
 int insertionSort (int[], int);
@@ -16,7 +16,7 @@ int main () {
 	int choice;
 	int arr1[1000], arr2[2000], arr4[4000], arr8[8000], arr16[16000];
 
-	printf("1: bubblesort, 2: insertion sort, 3: selection sort, 4: Enhanced bubblesort, 5: Shaker sort, 6: Insertion sort v2\n");
+	printf("1: bubblesort, 2: insertion sort, 3: selection sort, 4: Enhanced bubblesort, 5: Shaker sort, 6: Insertion sort v2, 7: Merge sort\n");
 
 	printf("What sort you want?: ");
 	scanf("%d", &choice);
@@ -75,6 +75,15 @@ int main () {
 		printf("size 8000 : %d \n", selectionSort(arr8, 8000));
 		printf("size 16000 : %d \n", selectionSort(arr16, 16000));
 		printf("-----Best case: O(n), worst case: O(n^2)-----\n");
+		break;
+		case 7: 
+		printf("Merge sort selected\n");
+		printf("size 1000 : %d \n", mergeSort(arr1, 1000));
+		printf("size 2000 : %d \n", mergeSort(arr2, 2000));
+		printf("size 4000 : %d \n", mergeSort(arr4, 4000));
+		printf("size 8000 : %d \n", mergeSort(arr8, 8000));
+		printf("size 16000 : %d \n", mergeSort(arr16, 16000));
+		printf("-----O(log(n))-----\n");
 		break;
 		default:
 		printf("Bubble sort selected\n");
@@ -229,8 +238,8 @@ int insertionSortV2(int arr[],int size){
 
 // Due to the memory usage of this algo, it cannot be timed without causing a crash :(
 int mergeSort (int arr[], int size) {
-	//clock_t start, finish;
-	//start = clock();
+	clock_t start, finish;
+	start = clock();
 	int arrL[MAX] = {0};
 	int arrR[MAX] = {0};
 	int pivot = size/2;
@@ -250,8 +259,8 @@ int mergeSort (int arr[], int size) {
 		mergeSort (arrR, i); // I used 'i' because it was post incremented earlier on
 	}
 	merge (arrL, arrR, arr, pivot, i);
-	//finish = clock();
-	return 0;
+	finish = clock();
+	return (int)(finish-start);
 }
 
 
@@ -266,6 +275,11 @@ void merge (int arrL[], int arrR[], int arr[], int left_size, int right_size) {
 		if (arrL[i] < arrR[j]) {
 			arr[index++] = arrL[i++];
 		}
+		// When they are both equal
+		if (arrL[i] == arrR[j]) {
+			arr[index++] = arrR[j++];
+			arr[index++] = arrL[i++];
+		}
 	}
 	// Settle the left overs 
 	if (left_size - i) {
@@ -275,13 +289,4 @@ void merge (int arrL[], int arrR[], int arr[], int left_size, int right_size) {
 		arr[index++] = arrR[j];
 	}
 }
-
-
-
-
-
-
-
-
-
 
