@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#define MAX 100
 
 int bubbleSort (int[], int);
 int insertionSort (int[], int);
@@ -8,6 +9,8 @@ int selectionSort (int[], int);
 int enhancedBubble (int[], int);
 int shakerSort(int[], int);
 int insertionSortV2(int[],int);
+void merge (int [], int [], int [], int , int ); 
+int mergeSort (int [], int );
 
 int main () {
 	int choice;
@@ -224,8 +227,54 @@ int insertionSortV2(int arr[],int size){
 	return (int)(finish-start);
 }
 
+// Due to the memory usage of this algo, it cannot be timed without causing a crash :(
+int mergeSort (int arr[], int size) {
+	//clock_t start, finish;
+	//start = clock();
+	int arrL[MAX] = {0};
+	int arrR[MAX] = {0};
+	int pivot = size/2;
+	int i, d;
+	if (size > 1) {
+		
+		for (i = 0; i < pivot; i++) {
+			// Copy to left 
+			arrL[i] = arr[i];
+		}
+		i = 0;
+		for (d = pivot; d < size; d++) {
+			// Copy to right
+			arrR[i++] = arr[d];
+		}
+		mergeSort (arrL, pivot);
+		mergeSort (arrR, i); // I used 'i' because it was post incremented earlier on
+	}
+	merge (arrL, arrR, arr, pivot, i);
+	//finish = clock();
+	return 0;
+}
 
 
+void merge (int arrL[], int arrR[], int arr[], int left_size, int right_size) {
+	int i = 0, j = 0, index = 0;
+	while (i < left_size && j < right_size) {
+		// Insert in increasing order 
+		if (arrL[i] > arrR[j]) {
+			arr[index++] = arrR[j++]; 
+		}
+
+		if (arrL[i] < arrR[j]) {
+			arr[index++] = arrL[i++];
+		}
+	}
+	// Settle the left overs 
+	if (left_size - i) {
+		arr[index++] = arrL[i]; 
+	}
+	if (right_size - j) {
+		arr[index++] = arrR[j];
+	}
+}
 
 
 
