@@ -40,7 +40,7 @@ void playGame (int arr[][MAX], int row, int col) {
    int x, y;
    while (!allCleared(arr, row, col)) {
       scanf("%d %d" , &y, &x) ;
-      if (arr[y][x] != -1) break;
+      if (arr[y][x] == 9 || y >= row || x >= col || y < 0 || x < 0) break;
       spread (arr, x, y, row, col);
    }
    printBoard (arr, row, col);
@@ -102,11 +102,11 @@ void spread (int arr[][MAX], int x, int y, int row, int col) {
 
     if (x+1 < col && y+1 < row && arr[y+1][x+1] == -1)
       spread (arr, x+1, y+1, row, col);
-    if (x-1 >= 0 && y-1 < row && arr[y+1][x-1] == -1)
+    if (x-1 >= 0 && y-1 < row && arr[y-1][x-1] == -1)
       spread (arr, x-1, y-1, row, col);
     if (y-1 >= 0 && x+1 < col && arr[y-1][x+1] == -1)
       spread (arr, x+1, y-1, row, col);
-    if (y+1 < row && x-1 < col && arr[y+1][x] == -1)
+    if (y+1 < row && x-1 < col && arr[y+1][x-1] == -1)
       spread (arr, x-1, y+1, row, col);
   }
 }
