@@ -108,8 +108,8 @@ int bubbleSort (int arr[], int n) {
 	for (int c = 0; c < n; c++) {
 		for (int d = 0; d < (n-c-1); d++) {
 			if (arr[d] > arr[d+1]) {
-				int t = arr[d];
-				arr[d] = arr[d+1];
+				int t = arr[d+1];
+				arr[d+1] = arr[d];
 				arr[d] = t;
 			}
 		}
