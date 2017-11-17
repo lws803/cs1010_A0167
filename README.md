@@ -2,7 +2,7 @@
 
 ## CS1010 shite and tips
 
-## PLEASE TRY TO KEEP AT LEAST 80% CODE IN C
+## PLEASE TRY TO KEEP AT LEAST 70% CODE IN C
 
 CS1010 Resources link
 http://www.comp.nus.edu.sg/~cs1010/2_resources/lectures.html
@@ -37,7 +37,7 @@ Exam:
 
 CS1010E:
 
-Practical Exam #3	15 Nov 2017 (Wed)
+~~Practical Exam #3	15 Nov 2017 (Wed)~~
 
 Exam:
 30 Nov 2017 (Thur)	9-11am
