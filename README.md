@@ -11,10 +11,16 @@ https://www.youtube.com/watch?v=6pbKB2TL3Jk
 TTG doesnt approve of this link.
 
 Common problems to try solving:
+
 https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/
 
 Sample code for interview questions: 
+
 https://github.com/royalpranjal/Interview-Bit
+
+Methods of performing combinatorics in C: 
+
+http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorithms/
 
 ## Redbull status: 12
 
