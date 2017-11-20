@@ -238,6 +238,10 @@ strcpy (fruit1, fruit2); // cant be done because fruit1 is not modifiable
 // Also strcpy cant work when a destination is smaller than the size we wish to copy in. 
 
 ---------------------------------------------------------------------------------------------------------------------------
+int a = 10;
+int* ptr = &a; // Will take the address of a 
+*ptr = a // will not take the address of a, will take the value of a  
+---------------------------------------------------------------------------------------------------------------------------
 fgets (arr, 100, stdin);
 
 // fgets actually records down the new line before ending off. so use for loop with '\n' instead. 
@@ -357,4 +361,29 @@ int main(int argc, char const *argv[])
 srand(); // srand shd be assigned to take an argument that changes, in that case time(NULL) would be best 
 srand(time(NULL));
 printf ("%d", rand());
+---------------------------------------------------------------------------------------------------------------------------
+// Order of recursion 
+// *Pre-processing 
+void mystery (int length) {
+    printf("%d\n", length);
+    if (length > 0) {
+        mystery (length - 1);
+    }
+}
+// Outputs: 10,9,8,7...
+/* vs */ 
+// *Post-processing
+void mystery (int length) {
+    if (length > 0) {
+        mystery (length - 1);
+    }
+    printf("%d\n", length); 
+}
+// Outputs: 0,1,2,3,4...
+
+/**
+ Simple concept but commonly applied to manipulating arrays or numbers. 
+ Postprocessing commonly used chiong to the last case and then slowly move back up to base case.
+ Pre-processing commonly used when we need to rely on the changes made. Eg. passing down values/ flood fill 
+*/
 ---------------------------------------------------------------------------------------------------------------------------
