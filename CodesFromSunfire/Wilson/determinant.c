@@ -34,7 +34,6 @@ int determinant (int mtx[][10], int size) {
 	if (size > 2) {
 		int i, d, c;
 		for (c = 0; c < size; c++) {
-			printf("%d\n", mtx[0][c]);
 			int arr[10][10] = {{0}}; // do not use a variable size arr eg. arr[size][size] even for this situation
 			for (i = 1; i < size; i++) {
 				int index = 0;
