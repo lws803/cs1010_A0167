@@ -340,4 +340,21 @@ void randomFunction (int *max, int arr[]) {
     *max = arr[0]; // Use this instead 
 }
 
+
+int main(int argc, char const *argv[])
+{
+    int arr[3] = {1,2,3};
+    int *p = arr;
+    printf("%d\n", *p); // prints 1 
+
+    printf("%d\n", ++*p); // prints 2 
+    // This shows that every element in the array is side by side (memory address)
+
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------------
+// As long as srand() is called once before rand() is called, the sequence of random numbers generated does not change everytime 
+srand(); // srand shd be assigned to take an argument that changes, in that case time(NULL) would be best 
+srand(time(NULL));
+printf ("%d", rand());
 ---------------------------------------------------------------------------------------------------------------------------
