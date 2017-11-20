@@ -335,3 +335,9 @@ int recursive_binary(int arr[], int start, int end, int target) {
     return -1;
 }
 ---------------------------------------------------------------------------------------------------------------------------
+void randomFunction (int *max, int arr[]) {
+    max = &arr[0]; // Will not be parsed back to the main func or anywhere outside of this function 
+    *max = arr[0]; // Use this instead 
+}
+
+---------------------------------------------------------------------------------------------------------------------------
