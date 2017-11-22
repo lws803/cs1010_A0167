@@ -385,7 +385,7 @@ int sum_circle (int arr[MAX_SLICES], int size, int index, int numSums) {
 		sum += arr[i];
 		count++;
 		if (i == size - 1) {
-			i = 0;
+			i = 0; // Reset the i to zero 
 		}
 	}
 	return sum;
@@ -455,17 +455,12 @@ int mostFrequentBigram (char text[], char result[]) {
 
 int mostFrequentBigram (char text[], char result[]) {
 	int i, count = 0, d, hashtable_multi[ASCII][ASCII] = {{0}};
-	// Init array 
-	for (i = 0; i < ASCII; i++) {
-		for (d = 0; d < ASCII; d++) {
-			hashtable_multi[i][d] = 0;
-		}
-	}
+	
 	for (i = 0; text[i] != '\0'; i++) {
 		char str[2];
 		int count2 = 0;
 		if (isalnum(text[i]) && isalnum(text[i+1])) {	
-			hashtable_multi[text[i]][text[i+1]] += 1;
+			hashtable_multi[text[i]][text[i+1]] += 1; // Append 1 for each letter found.
 		}
 	}
 	for (i = 0; i < ASCII; i++) {
