@@ -20,7 +20,7 @@ void readFile () {
 		// Process whatever you wish with num here. 
 	}
 
-	fclose (infile); // to close the file
+	fclose (infile); // to close the file ** THIS IS EXTREMELY IMPT, DO NOT FORGET
 }
 
 
