@@ -112,3 +112,34 @@ void flipH(int image[][MAX_SIZE], int size) {
 	}
 
 }
+
+// Swapping rings in a square mtx, pay attention to the new swapping technique used. 
+void flipLeftRight (int square[][10], int size, int index) {
+	int i;
+	// Flip the sides
+	for (i = index; i < size; i++) {
+		int temp = square[i][index];
+		square[i][index] = square[i][size-index-1];
+		square[i][size-index-1] = temp;
+	}
+
+	// Flip inner 
+	int starting = index + 1; 
+	int ending = size - index - 2;
+
+	printf("(ending-starting)/2: %d\n", (ending-starting)/2);
+	// Really really tricky part
+	// Instead of letting i be the starting index we let it be zero. 
+	// This will not double swap and we do not have to consider cases of odd size or even size. 
+	// It's because starting+i and ending-i will arrive at the same element, thus swapping among themselves 
+	for (i = 0; i <= (ending-starting)/2; i++) {
+		int temp = square[index][starting + i];
+		square[index][starting + i] = square[index][ending-i];
+		square[index][ending-i] = temp;
+
+
+		temp = square[size - index - 1][starting + i];
+		square[size - index - 1][starting + i] = square[size - index - 1][ending-i];
+		square[size - index - 1][ending-i] = temp;
+	}
+}

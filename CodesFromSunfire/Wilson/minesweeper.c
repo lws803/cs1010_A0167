@@ -7,20 +7,6 @@ void spread (int [][MAX], int , int , int , int ) ;
 int allCleared (int [][MAX], int , int); 
 void playGame (int [][MAX], int, int); 
 
-// Possible marcus's problem, Marcus's algo floods the entire board whereas the test case could only be expecting the following: 
-
-/*
-0 0 // when 0 0 is pushed 
-000000000
-121100000
-*.*100000
-...100011
-....1111*
-.*...*...
-**.......
-......***
-*/
-
 
 int main(int argc, char const *argv[])
 {
