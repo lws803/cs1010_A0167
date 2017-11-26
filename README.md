@@ -31,7 +31,7 @@ http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorith
 6. SortingAlgosTimeTest
 7. swift_ports
 
-# Some schedule to be wary of: 
+## Some schedule to be wary of: 
 
 CS1010:
 
