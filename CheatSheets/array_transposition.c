@@ -85,33 +85,37 @@ void flipD(int image[][MAX_SIZE], int size) {
 	}
 }
 
+// Newly modified for efficiency and works for all scenarios 
 // Flip an array wrt to a horizontal line from the centre. 
+// Note: To introduce customisable row and cols, just include new arguments and edit the size variables inside. 
 void flipH(int image[][MAX_SIZE], int size) {
 	int i, d;
-	if (size%2 != 0) {
-		// even number of height
-		for (i = 0; i < size/2; i++) {
-			for (d = 0; d < size; d++) {
-				// Swapping
-				int t = image[i][d];
-				image[i][d] = image[size - i - 1][d];
-				image[size - i - 1][d] = t;
-			}
-		}
-
-	}else {
-		// odd number of height
-		for (i = 0; i <= size/2; i++) {
-			for (d = 0; d < size; d++) {
-				// swapping
-				int t = image[i][d];
-				image[i][d] = image[size - i - 1][d];
-				image[size - i - 1][d] = t;
-			}
+	int start = 0;
+	int end = size-1;
+	for (d = 0; d < size; d++) {
+		for (i = 0; i <= (end-start)/2; i++) {
+			int temp = image[start + i][d];
+			image[start + i][d] = image[end-i][d];
+			image[end-i][d] = temp;
 		}
 	}
-
 }
+
+// Flip an array wrt to a vertical line from the centre. 
+void flipV(int image[][MAX_SIZE], int size) {
+	int i, d;
+	int start = 0;
+	int end = size-1;
+	for (d = 0; d < size; d++) {
+		for (i = 0; i <= (end-start)/2; i++) {
+			int temp = image[d][start + i];
+			image[d][start + i] = image[d][end-i];
+			image[d][end-i] = temp;
+		}
+	}
+}
+
+
 
 // Swapping rings in a square mtx, pay attention to the new swapping technique used. 
 void flipLeftRight (int square[][10], int size, int index) {
