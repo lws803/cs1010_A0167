@@ -148,6 +148,25 @@ OUTPUT
 0 0 0 0 
 0 0 0 0 
 0 0 0 0
+
+// Interesting case 
+
+int i, j;
+    int A[4][4] = {{1,2,3}}; // This is fine because we've defined the size of the multidim array
+    int B[4] = {0};
+
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("%d ", A[i][j]);
+        }
+    printf("\n");
+}
+
+OUTPUT
+1 2 3 0 
+0 0 0 0 
+0 0 0 0 
+0 0 0 0 
 ---------------------------------------------------------------------------------------------------------------------------
 // Never do this: 
 int size = 10; // Variable sized array
