@@ -20,22 +20,26 @@ Methods of performing combinatorics in C:
 
 http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorithms/
 
-## Redbull status: 12
+## Redbull status: 4
 
-# Some schedule to be wary of: 
+## Cheat sheets to bring 
+1. 1010 cheat_sheet v2
+2. code_snippets_1 to 3
+3. CS1010_common_mistakes 
+4. Recursion_fun_stuff
+5. sets_multisets
+6. SortingAlgosTimeTest
+7. swift_ports
+8. array_transposition
+
+## Some schedule to be wary of: 
 
 CS1010:
-
-~~Practical Exam #2	4 Nov 2017~~
-~~Session 1: 12:30-3pm~~
-~~Session 2: 3-5:30pm~~
 
 Exam: 
 29 Nov 2017 (Wed)	5-7pm	
 
 CS1010E:
-
-~~Practical Exam #3	15 Nov 2017 (Wed)~~
 
 Exam:
 30 Nov 2017 (Thur)	9-11am
