@@ -31,6 +31,7 @@ http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorith
 6. SortingAlgosTimeTest
 7. swift_ports
 8. array_transposition
+9. Tracing tips (markdown)
 
 ## Some schedule to be wary of: 
 
