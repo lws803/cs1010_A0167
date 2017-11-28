@@ -5,22 +5,17 @@ typedef struct {
 	int price;
 }coupon_t;
 
-
 int minimumCost (coupon_t [], int , int ); 
 
 int main(int argc, char const *argv[])
 {
 	coupon_t coupons [4] = {{3, 10}, {2, 4}, {2, 4}, {1, 3}};
 
-
 	// Min 8 
 	printf("%d\n", minimumCost(coupons, 4, 4));
 
-
 	return 0;
 }
-
-
 
 // Find minimum cost 
 // This function has to act as the head + compare values + terminate only when units == 0 
