@@ -172,6 +172,18 @@ OUTPUT
 0 0 0 0 
 0 0 0 0 
 ---------------------------------------------------------------------------------------------------------------------------
+// This is illegal 
+
+arr = {1,1,1};
+// or 
+arr[0] = {1,1,1};
+
+// This applies for strings too 
+// Which you'll have to use 
+strcpy (arr, "test");
+// And not 
+arr = "test";
+---------------------------------------------------------------------------------------------------------------------------
 // Never do this: 
 int size = 10; // Variable sized array
 int arr[size][size] = {{0}}; // Won't compile, will give warning 
