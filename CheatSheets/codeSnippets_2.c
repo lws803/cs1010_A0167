@@ -3,8 +3,8 @@
 
 // To multiply mtxA and mtxB to obtain mtxC
 void prodMatrix(float mtxA[][MAX_COL], float mtxB[][MAX_COL], 
-		float mtxC[][MAX_COL], int mtxA_row_size, 
-		int mtxA_col_size, int mtxB_col_size) {
+	float mtxC[][MAX_COL], int mtxA_row_size, 
+	int mtxA_col_size, int mtxB_col_size) {
 
 	int row, col, row2;
 	// Row stepper for mtx A
@@ -166,33 +166,33 @@ int isSubset(int arrA[], int sizeA, int arrB[], int sizeB) {
 
 void printRank (int arr[][2], int size, int rank) {
 
-  int i, d, smallestElement = 100, comparisonIndex;
+	int i, d, smallestElement = 100, comparisonIndex;
 
-  for (i = 0; i < size ; i++) {
+	for (i = 0; i < size ; i++) {
     // Find the smallest element 
-    if (arr[i][1] < smallestElement) {
-      smallestElement = arr[i][1];
-    }
-  }
+		if (arr[i][1] < smallestElement) {
+			smallestElement = arr[i][1];
+		}
+	}
 
   // To find the next smallest
-  for (i = 1; i < rank; i++){
-    int smallestDifference = 100;
-    for (d = 0; d < size; d++){
-      int difference = arr[d][1] - smallestElement;
-      if (difference < smallestDifference && difference > 0) {
-        smallestDifference = difference;
-        comparisonIndex = d;
-      }else if (difference == 0) {
+	for (i = 1; i < rank; i++){
+		int smallestDifference = 100;
+		for (d = 0; d < size; d++){
+			int difference = arr[d][1] - smallestElement;
+			if (difference < smallestDifference && difference > 0) {
+				smallestDifference = difference;
+				comparisonIndex = d;
+			}else if (difference == 0) {
         // Might be dupe or might be similar score, check ID and further eval 
 
-      }
-    }
+			}
+		}
     // Next smallest number 
-    smallestElement = arr[comparisonIndex][1];
-  }
+		smallestElement = arr[comparisonIndex][1];
+	}
 
-  printf("ID: %d SCORE: %d\n", arr[comparisonIndex][0], smallestElement);
+	printf("ID: %d SCORE: %d\n", arr[comparisonIndex][0], smallestElement);
 
 }
 
@@ -202,27 +202,27 @@ void printRank (int arr[][2], int size, int rank) {
 
 int insertTable (int arr[][2], int size) {
 
-  int id, score, i = 0;
+	int id, score, i = 0;
 
-  printf("Please input the student's ID...\n");
-  scanf("%d", &id);
-  printf("Please input the student's score...\n");
-  scanf("%d", &score);
+	printf("Please input the student's ID...\n");
+	scanf("%d", &id);
+	printf("Please input the student's score...\n");
+	scanf("%d", &score);
 
 
-  for (i = 0; i < size; i++){
-      if (arr[i][1] > score) {
-        size = insert(arr, id, score, i, size);
-        break;
-      } 
-    }
-  if (i == size) {
-    arr[size][0] = id;
-    arr[size][1] = score;
-    size++;
-  }
+	for (i = 0; i < size; i++){
+		if (arr[i][1] > score) {
+			size = insert(arr, id, score, i, size);
+			break;
+		} 
+	}
+	if (i == size) {
+		arr[size][0] = id;
+		arr[size][1] = score;
+		size++;
+	}
 
-  return size;
+	return size;
 }
 
 
@@ -394,18 +394,18 @@ int sum_circle (int arr[MAX_SLICES], int size, int index, int numSums) {
 
 // String tokenisation 
 void tokenisation (char str[]) {
-   const char s[2] = " ";
-   char *token;
-   
+	const char s[2] = " ";
+	char *token;
+	
    /* get the first token */
-   token = strtok(str, s);
-   
+	token = strtok(str, s);
+	
    /* walk through other tokens */
-   while( token != NULL ) {
-   	printf("%s\n", token);
+	while( token != NULL ) {
+		printf("%s\n", token);
    	// Do fancy functions here, token is a string 
-   	token = strtok(NULL, s);
-   }
+		token = strtok(NULL, s);
+	}
 }
 
 // Character insert at the back of string
@@ -516,41 +516,41 @@ int compare (char target[], char source[26][MAXLEN]) {
 
 int index = 0; 
 for (i = 0; name[i] != '\0'; i++) {
-		store[index++] = name[i];
-		store[index] = '\0';
+	store[index++] = name[i];
+	store[index] = '\0';
 }
 
 
 // Recursion for solving north east question 
 
 int ne(int y, int x) {
- 
-    if (x == 0 && y == 0) {
-        return 1;
-    }
-    int npaths = 0, epaths = 0;
-    if (y != 0) {
-        npaths = ne(y - 1, x);
-    }
-    if (x != 0) {
-        epaths = ne (y, x - 1);
-    }
-    return npaths + epaths;
+	
+	if (x == 0 && y == 0) {
+		return 1;
+	}
+	int npaths = 0, epaths = 0;
+	if (y != 0) {
+		npaths = ne(y - 1, x);
+	}
+	if (x != 0) {
+		epaths = ne (y, x - 1);
+	}
+	return npaths + epaths;
 }
 
 
 // String compression (removal of " " and strcat into new string)
 char newStr [10] = "\0";
 void compress (char str[]) {
-   const char s[2] = " ";
-   char *token;
+	const char s[2] = " ";
+	char *token;
 
-   token = strtok(str, s);
+	token = strtok(str, s);
 
-   while( token != NULL ) {
-   	strcat (newStr, token);
-   	token = strtok(NULL, s);
-   }
+	while( token != NULL ) {
+		strcat (newStr, token);
+		token = strtok(NULL, s);
+	}
 }
 
 
