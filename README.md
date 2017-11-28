@@ -23,16 +23,15 @@ http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorith
 ## Redbull status: 4
 
 ## Cheat sheets to bring 
-1. 1010 cheat_sheet v2
-2. code_snippets_1 to 3
-3. CS1010_common_mistakes 
-4. Recursion_fun_stuff
-5. sets_multisets
-6. SortingAlgosTimeTest
-7. swift_ports
-8. array_transposition
-9. Tracing tips (markdown)
-
+1. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)1010 cheat_sheet v2
+2. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)code_snippets_1 to 3
+3. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)CS1010_common_mistakes 
+4. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)Recursion_fun_stuff
+5. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)sets_multisets
+6. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)SortingAlgosTimeTest
+7. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)swift_ports
+8. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)array_transposition
+9. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+)OPEN (&#x1F34E;)Tracing tips (markdown)
 ## Some schedule to be wary of: 
 
 CS1010:
