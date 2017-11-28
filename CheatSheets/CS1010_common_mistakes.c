@@ -42,6 +42,11 @@ void operatorTest () {
     // OUTPUT: 1 whatever goes in the bracket will be processed first before left to right precedence is applied.
 }
 ---------------------------------------------------------------------------------------------------------------------------
+// Cant use % with real numbers 
+
+x % 1.0 // Illegal 
+x % 5 // Legal
+---------------------------------------------------------------------------------------------------------------------------
 i = (int)'A';
 switch (i){
 	case 'A': printf("%d\n",i);		//will print all of the statements due to no "break;" statement
@@ -153,7 +158,6 @@ OUTPUT
 
 int i, j;
     int A[4][4] = {{1,2,3}}; // This is fine because we've defined the size of the multidim array
-    int B[4] = {0};
 
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 4; j++) {
