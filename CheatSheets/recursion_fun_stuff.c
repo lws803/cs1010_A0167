@@ -76,3 +76,47 @@ void fill (char matrix[][MAX], int x, int y) {
 	if (y+1 < MAX && matrix[y+1][x] != 'x')
 		fill (matrix, x, y+1);
 }
+
+
+// Permutation or possibility tree
+// Can be applied to find number of possibilities or coupon questions
+
+int header (int arr[], int size) {
+	int i;
+	int count = 0;
+	for (i = 0; i < size; i++) {
+
+		
+		/**
+		 * We can choose whether or not to do anything with the initial value here selected by the for loop before
+		 * stepping.    
+		*/
+
+
+		// Start stepping from the index after the current one selected by the for loop.
+		count += step (arr, i + 1, size);
+	}
+}
+
+int step (int arr[], int index, int size) {
+	// Terminations 
+	if (NOT_GOOD) {
+		// eg. -ve fuel, -ve money
+		return -1;
+	}
+	if (VERY_GOOD) {
+		// eg. reached destination, reached most optimum cash 
+		return 1;
+	}
+
+	// Else we do not terminate first
+	int count = 0; // Required to make sure that it returns something 
+
+	for (i = index + 1; i < size; i++) { // To make sure that current index is not called again, we start from i = index + 1
+		// Check ahead to make sure that the path is valid first 
+		if (step (arr, i, size) != -1)
+			count += step (arr, i, size);
+	}
+
+	return count; // Returns the number of possibilities 
+}
