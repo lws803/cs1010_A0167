@@ -32,8 +32,9 @@ http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorith
 7. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) swift_ports
 8. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) array_transposition
 9. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Tracing tips (markdown)
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (FINALISED)
-- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) (OPEN)
+
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (GOOD TO PRINT)
+- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) (STILL EDITING)
 ## Some schedule to be wary of: 
 
 CS1010:
