@@ -23,18 +23,18 @@ http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorith
 ## Redbull status: 4
 
 ## Cheat sheets to bring 
-1. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) 1010 cheat_sheet v2
-2. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) code_snippets_1 to 3
-3. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) CS1010_common_mistakes 
-4. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) Recursion_fun_stuff
-5. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) sets_multisets
-6. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) SortingAlgosTimeTest
-7. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) swift_ports
-8. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) array_transposition
-9. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Tracing tips (markdown)
+1. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) 1010 cheat_sheet v2
+2. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) code_snippets_1 to 3
+3. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) CS1010_common_mistakes 
+4. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Recursion_fun_stuff
+5. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) sets_multisets
+6. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) SortingAlgosTimeTest
+7. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) swift_ports
+8. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) array_transposition
+9. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) Tracing tips (markdown)
 
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (GOOD TO PRINT)
-- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) (STILL EDITING)
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (STILL EDITING)
+- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) (GOOD TO PRINT)
 ## Some schedule to be wary of: 
 
 CS1010:
