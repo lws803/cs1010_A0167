@@ -344,7 +344,17 @@ void func (test_t *test) {
     test->a = 10;
     // Take note we use an arrow here instead to reference the item inside the struct
 }
+---------------------------------------------------------------------------------------------------------------------------
+// Assigning values to a struct 
 
+typedef struct {
+    int a;
+    int b;
+    int c;
+}test_t;
+
+test_t t = {1,2}; // This is legal even tho we did not assign c; 
+// c would be zero in this case, it would be treated like a regular array
 ---------------------------------------------------------------------------------------------------------------------------
 fscanf(infile, "%d", size1);
     for (i = 0; i < *size1; i++) {
