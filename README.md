@@ -25,7 +25,7 @@ http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorith
 ## Cheat sheets to bring 
 1. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) 1010 cheat_sheet v2
 2. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) code_snippets_1 to 3
-3. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) CS1010_common_mistakes 
+3. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) CS1010_common_mistakes 
 4. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) Recursion_fun_stuff
 5. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) sets_multisets
 6. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) SortingAlgosTimeTest
