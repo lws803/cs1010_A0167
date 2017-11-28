@@ -274,6 +274,11 @@ strcpy (fruit1, fruit2); // cant be done because fruit1 is not modifiable
 // Also strcpy cant work when a destination is smaller than the size we wish to copy in. 
 
 ---------------------------------------------------------------------------------------------------------------------------
+char str1[MAX] = "HelloWorld", str2[MAX] = "Hello";
+char *ptr = strstr (str1, str2); // Note that strstr will take everything after the substring (str2)
+
+printf("%s\n", *ptr); // Will print HelloWorld.
+---------------------------------------------------------------------------------------------------------------------------
 int a = 10;
 int* ptr = &a; // Will take the address of a 
 *ptr = a // will not take the address of a, will take the value of a  
