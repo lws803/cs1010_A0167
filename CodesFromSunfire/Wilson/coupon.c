@@ -10,7 +10,7 @@ int minimumCost (coupon_t [], int , int );
 
 int main(int argc, char const *argv[])
 {
-	coupon_t coupons [5] = {{3, 10}, {2, 4}, {2, 4}, {1, 3}};
+	coupon_t coupons [4] = {{3, 10}, {2, 4}, {2, 4}, {1, 3}};
 
 
 	// Min 8 
@@ -30,11 +30,10 @@ int minimumCost(coupon_t coupons[], int numCoupons, int units)
 	coupon_t newcoup[20];
 	float record = 0, value;
 	
-	if (units == 0)
+	if (units == 0)							//while there are still units to be bought
 		return 0;
 	
-	for(i = 0; i < numCoupons; i++)
-	{
+	for(i = 0; i < numCoupons; i++)			//find the coupon with the best value
 		value = (float)coupons[i].quantity/ coupons[i].price;
 		if(value > record && coupons[i].quantity <= units)
 		{
@@ -43,15 +42,15 @@ int minimumCost(coupon_t coupons[], int numCoupons, int units)
 		}
 	}
 	
-	for(i = 0; i < numCoupons; i ++)
+	for(i = 0; i < numCoupons; i ++)		//make a new list without the current coupon.
 		if (i != value_i)
 			newcoup[j++] = coupons[i];
 		
-		if (record == 0)
-			return -1;
-		
-		if (minimumCost(newcoup, numCoupons -1, units - coupons[value_i].quantity) == -1)
-			return minimumCost(newcoup, numCoupons -1, units) ;
-		else
-			return minimumCost(newcoup, numCoupons -1, units - coupons[value_i].quantity) + coupons[value_i].price ;
+	if (record == 0)						//cannot find a coupon with the required quantity.
+		return -1;
+	
+	if (minimumCost(newcoup, numCoupons -1, units - coupons[value_i].quantity) == -1)
+		return minimumCost(newcoup, numCoupons -1, units) ;		//UNable to find a suitable coupon redo the current number of units
+	else
+		return minimumCost(newcoup, numCoupons -1, units - coupons[value_i].quantity) + coupons[value_i].price ;
 	}
