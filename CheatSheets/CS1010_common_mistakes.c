@@ -17,16 +17,16 @@ for (i=0, i <5, i++);	//due to the ';' token at the end, will not process the ne
 ---------------------------------------------------------------------------------------------------------------------------
 double a=1.5, b=1.55
 if (a=b)				//the assignment will lead to the side effect of 'if (1.55)' which is TRUE.
-    printf(”a and b are equal”)
+    printf("a and b are equal") ;
 else
-    printf(”a and b are not equal”)
+    printf("a and b are not equal") ;
 
 ---------------------------------------------------------------------------------------------------------------------------
 double a=1.5, b=0
 if (a=b)				//the assignment will lead to the side effect of 'if (0)' which is FALSE.
-    printf(”a and b are equal”)
+    printf("a and b are equal") ;
 else
-    printf(”a and b are not equal”)
+    printf("a and b are not equal") ;
 
 ---------------------------------------------------------------------------------------------------------------------------
 // To test the use of crappy operator styles
