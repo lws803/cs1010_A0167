@@ -20,8 +20,6 @@ Methods of performing combinatorics in C:
 
 http://www.sanfoundry.com/c-programming-examples-combinatorial-problems-algorithms/
 
-## Redbull status: 4
-
 ## Cheat sheets to bring 
 1. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) 1010 cheat_sheet v2
 2. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) code_snippets_1 to 3
