@@ -282,11 +282,11 @@ void merge (int arrL[], int arrR[], int arr[], int left_size, int right_size) {
 		}
 	}
 	// Settle the left overs 
-	if (left_size - i) {
-		arr[index++] = arrL[i]; 
+	while (left_size - i) {
+		arr[index++] = arrL[i++]; 
 	}
-	if (right_size - j) {
-		arr[index++] = arrR[j];
+	while (right_size - j) {
+		arr[index++] = arrR[j++];
 	}
 }
 
