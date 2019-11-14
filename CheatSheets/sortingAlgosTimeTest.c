@@ -99,7 +99,9 @@ int main () {
 }
 
 
-// To determine sort time of a bubble sort Algo 
+/**
+	Pros: Good to use for small arrays
+*/
 
 int bubbleSort (int arr[], int n) {
 	clock_t start, finish;
@@ -120,6 +122,11 @@ int bubbleSort (int arr[], int n) {
 	return (int)((finish - start));
 }
 
+
+/**
+	Pros: Good to use for small arrays
+*/
+
 int insertionSort (int arr[], int n) {
 	int d, c, t;
 	clock_t start, finish;
@@ -139,6 +146,10 @@ int insertionSort (int arr[], int n) {
 	return (int)(finish - start);
 }
 
+
+/**
+	Pros: Good to use for small arrays
+*/
 
 int selectionSort (int arr[], int n) {
 	int i, smallestIndex, t;
@@ -235,6 +246,13 @@ int insertionSortV2(int arr[],int size){
 	finish = clock();
 	return (int)(finish-start);
 }
+
+
+
+/**
+	Pros: Constant O(N log N)
+	Cons: Not memory efficient and requires O(N) space
+*/
 
 // Due to the memory usage of this algo, it cannot be timed without causing a crash :(
 int mergeSort (int arr[], int size) {

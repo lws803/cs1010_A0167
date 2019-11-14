@@ -9,7 +9,7 @@ void uFriend(int [][MAXSIZE], int);
 int contains (int [], int, int);
 
 int main() {
-	int friendArr[MAXSIZE][MAXSIZE] = { {0} };
+	int friendArr[MAXSIZE][MAXSIZE] = { {0} }; 
 	int size, pairsNum;
 	int i, j, k;
 

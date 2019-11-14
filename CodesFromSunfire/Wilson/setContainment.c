@@ -50,7 +50,6 @@ void printArray(int arr[], int size)
 	printf("\n");
 }
 
-// This function is a stub. Complete it.
 int isSubset(int arrA[], int sizeA, int arrB[], int sizeB) {
 	int i, d, count = 0;
 	for (i = 0; i < sizeA; i++) {
